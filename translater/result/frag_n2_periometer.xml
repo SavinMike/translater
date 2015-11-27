@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/view_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/Nandos.TextView.TitleCrazy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/block_bg_header"
+            android:padding="10dp"
+            android:text="Choose your spice"/>
+
+        <View style="@style/Nandos.Divider"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/block_bg_footer"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:id="@+id/header_cont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/frag_n2_periometer_linear_layout_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_section_number"
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    android:background="@drawable/circle_red"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    app:typefacePath="@string/nandos_bold"
+                    tools:ignore="MissingPrefix,HardcodedText"/>
+
+                <TextView
+                    android:id="@+id/text_section_title"
+                    style="?attr/textViewDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/choose_your_spice"
+                    android:textColor="@color/textDefault"
+                    android:textSize="20sp"
+                    app:typefacePath="@string/vista_altblack"
+                    tools:ignore="MissingPrefix"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_periometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/frag_n2_periometer_linear_layout_header"
+                android:paddingBottom="15dp"
+                android:src="@drawable/periometer_image"
+                tools:ignore="ContentDescription"/>
+
+            <ViewSwitcher
+                android:id="@+id/switcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/frag_n2_periometer_linear_layout_header"
+                android:layout_toLeftOf="@id/image_periometer"
+                android:minHeight="106dp">
+
+                <ImageView
+                    android:id="@+id/image_describe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    tools:ignore="ContentDescription"/>
+
+                <TextView
+                    android:id="@+id/text_describe"
+                    style="@style/Nandos.TextView.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </ViewSwitcher>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_levels_row_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_cont">
+
+            <ImageView
+                android:id="@+id/image_level_plain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-10dp"
+                android:layout_weight="1"
+                android:src="@drawable/btn_level_plain_unselected"
+                tools:ignore="ContentDescription"/>
+
+            <ImageView
+                android:id="@+id/image_level_lemon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-10dp"
+                android:layout_weight="1"
+                android:src="@drawable/btn_level_lemon_herb_unselected"
+                tools:ignore="ContentDescription"/>
+
+            <ImageView
+                android:id="@+id/image_level_mango"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="-10dp"
+                android:layout_weight="1"
+                android:src="@drawable/btn_level_mango_and_lime_unselected"
+                tools:ignore="ContentDescription"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_levels_row_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_levels_row_1">
+
+            <ImageView
+                android:id="@+id/image_level_medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-10dp"
+                android:layout_weight="1"
+                android:src="@drawable/btn_level_medium_unselected"
+                tools:ignore="ContentDescription"/>
+
+            <ImageView
+                android:id="@+id/image_level_hot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="-10dp"
+                android:layout_weight="1"
+                android:src="@drawable/btn_level_hot_unselected"
+                tools:ignore="ContentDescription"/>
+
+            <ImageView
+                android:id="@+id/image_level_extra_hot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="-10dp"
+                android:layout_weight="1"
+                android:src="@drawable/btn_level_extra_hot_unselected"
+                tools:ignore="ContentDescription"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View style="@style/Nandos.Divider"/>
+
+    <Space
+        android:id="@+id/view_margin"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+</LinearLayout>

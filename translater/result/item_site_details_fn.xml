@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@drawable/list_item_site_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
+    android:padding="5dp" >
+
+    <!-- style="?attr/listItem" -->
+    <!-- <Button -->
+    <!-- android:id="@+id/button_show_on_map" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_alignParentBottom="true" -->
+    <!-- android:layout_alignParentRight="true" -->
+    <!-- android:layout_alignParentTop="true" -->
+    <!-- android:background="@drawable/location_map" -->
+    <!-- android:focusable="false" /> -->
+
+    <TextView
+        android:id="@+id/text_name"
+        style="?attr/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:text="Nandos"
+        android:textColor="@color/listItemTextGreen"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/image_show_on_map"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginRight="12dp"
+        android:focusable="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/button_map_background"
+        android:visibility="gone"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/text_distance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:singleLine="true"
+        android:text="afafas fa f fgggf sfa fa"
+        android:textColor="@color/listItemTextGreen"
+        android:textSize="16sp" />
+    <!-- android:layout_alignParentRight="true" -->
+    <!-- android:layout_toLeftOf="@id/button_show_on_map" -->
+
+    <TextView
+        android:id="@+id/text_address"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/listItemTextGreen"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/product_cell_arrow" />
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/txt_footer"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/text_color_default"
+        android:visibility="gone"
+        style="@style/Nandos.Text"
+        android:text="@string/ingredients_nutrial_note"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/txt_footer"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Nutritional Information"
+                android:textColor="@color/text_color_default"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                style="@style/Nandos.Text"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:id="@+id/view_container"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_notes"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textColor="@color/text_color_default"
+                style="@style/Nandos.Text"
+                android:visibility="gone"
+                android:text="@string/ingredients_nutrial_note"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

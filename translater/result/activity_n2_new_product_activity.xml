@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/background"
+              android:orientation="vertical"
+              android:paddingBottom="10dp"
+              android:paddingTop="10dp">
+
+    <FrameLayout
+        android:id="@+id/frag_total_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linear_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_customize"
+                    style="@style/Nandos.TextView.TitleCrazy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/block_bg_header"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/text_describe"
+                    style="@style/Nandos.TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/block_bg_footer"
+                    android:padding="10dp"
+                    android:textColor="@color/simpleText"
+                    android:textSize="18sp"
+                    android:visibility="gone"/>
+
+                <View style="@style/Nandos.Divider"/>
+            </LinearLayout>
+
+            <FrameLayout
+                style="@style/Nandos.Container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    layout="@layout/item_add_fav"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/Nandos.Container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/block_bg_header"
+                android:padding="0dp"
+                android:paddingBottom="11dp">
+
+                <include
+                    layout="@layout/item_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+
+            <View style="@style/Nandos.Divider"/>
+
+            <FrameLayout
+                style="@style/Nandos.Container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp">
+
+                <include
+                    layout="@layout/item_local_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+
+            <View style="@style/Nandos.Divider"/>
+
+            <FrameLayout
+                android:id="@+id/frame_order_fragment"
+                style="@style/Nandos.Container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/block_bg_footer"
+                android:padding="0dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

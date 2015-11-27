@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/backgroundColor" >
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="20dp" >
+
+		<com.altaine.nandosuk.ui.views.PathTextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="5dp"
+			android:gravity="center"
+			android:paddingLeft="5dp"
+			android:paddingRight="10dp"
+			android:text="Thanks for\n cheking out\n our app"
+			android:textSize="40sp"
+			android:textStyle="bold" />
+
+		<TextView
+			android:id="@+id/textview_app_feedback_comments"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:text="We&apos;d love to know what you think. If you fancy givving us some feedback, just tap below."
+			android:textColor="@color/simpleText"
+			android:textSize="16sp" />
+
+		<Button
+			android:id="@+id/button_feedback"
+			style="?attr/button"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_margin="10dp"
+			android:text="Send us some app feedback" />
+
+		<TextView
+			android:id="@+id/textview_nandos_feedback_comments"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:gravity="center"
+			android:text="Feel like sayng &apos;hello&apos;, or something wasn&apos;t quite right? We&apos;re always happy to hear from you."
+			android:textColor="@color/simpleText"
+			android:textSize="16sp" />
+
+		<Button
+			android:id="@+id/button_message"
+			style="?attr/button"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal|bottom"
+			android:layout_margin="10dp"
+			android:background="@drawable/button_message"
+			android:text="Send us a message" />
+	</LinearLayout>
+
+</ScrollView>

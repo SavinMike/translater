@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.altaine.nandosuk.ui.views.NandosToggleButton xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_margin="5dp"
+	android:layout_marginLeft="10dp"
+	android:layout_marginRight="10dp"
+	android:background="@drawable/button_modifier_tweak_meal"
+	android:textColor="@drawable/button_tweak_meal_text"
+	app:typefacePath="@string/vista_altblack" />

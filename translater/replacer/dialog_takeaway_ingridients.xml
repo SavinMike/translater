@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:background="#FFf5f3e7"
+                android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_close"
+        android:text="@string/close"
+        android:background="@drawable/btn_ingridient_dialog"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/view_header"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:id="@+id/txt_name"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/simpleText"
+            android:textSize="20sp"
+            android:text="Hello"
+            style="@style/Nandos.Text.TitleNorm"
+            app:typefacePath="@string/vista_black"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:ignore="MissingPrefix"/>
+
+        <TextView
+            android:id="@+id/txt_cost"
+            android:textStyle="bold"
+            style="@style/Nandos.Text.TitleCrazy"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:text="$3.10"
+            app:typefacePath="@string/vista_altblack"
+            android:layout_marginRight="12dp"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingPrefix"/>
+
+    </LinearLayout>
+
+
+    <com.altaine.nandosuk.ui.views.FragmentTabHost
+        android:layout_below="@id/view_header"
+        android:layout_above="@id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@android:id/tabhost">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </FrameLayout>
+        </LinearLayout>
+    </com.altaine.nandosuk.ui.views.FragmentTabHost>
+</RelativeLayout>

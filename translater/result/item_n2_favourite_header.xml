@@ -1,0 +1,14 @@
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/text_favourite_header"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="5dp"
+	android:padding="15dp"
+	android:textSize="25sp"
+	android:textStyle="bold"
+    app:typefacePath="@string/nandos_bold"
+    android:background="@drawable/table_backgroung_header"
+    tools:ignore="MissingPrefix" />

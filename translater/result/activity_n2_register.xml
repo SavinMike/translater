@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/background"
+              android:orientation="vertical"
+              android:paddingBottom="10dp"
+              android:paddingTop="10dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:background="@drawable/table_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="25dp"
+                android:text="@string/register"
+                android:textColor="@color/textDefault"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:typefacePath="@string/nandos_bold"
+                tools:ignore="MissingPrefix"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="25dp"
+                android:text="@string/register_required_fields"
+                android:textColor="@color/primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:typefacePath="@string/vista_altblack"
+                tools:ignore="MissingPrefix"/>
+
+            <View
+                style="@style/Nandos.Divider"
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/emailValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_email"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/emailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_email_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/emailConfirmValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_email_verify"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/emailConfirmTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_email_verify_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/mobileValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_mobile"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/mobileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_mobile_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/mobileVerifyValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_mobile_verify"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/mobileVerifyTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_mobile_verify_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/nameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/nameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_name_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/surnameValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_surname"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/surnameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_surname_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/postcodeValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_postcode_star"
+                    android:inputType="textPostalAddress"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/postcodeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_postcode_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/cardValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:hint="@string/register_card"
+                    android:inputType="number"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/cardError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_card_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/cardNote"
+                    style="@style/Nandos.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/card_filed_note"
+                    android:textColor="@color/grayText"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/cardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_card"
+                    android:textColor="@color/textDefault"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:typefacePath="@string/vista_altblack"
+                    tools:ignore="MissingPrefix"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/passwordValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:fontFamily="sans-serif-black-small-caps"
+                    android:hint="@string/register_password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:password="true"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/passwordTitle"
+                    style="@style/Nandos.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_password_requarements"
+                    android:textColor="@color/grayText"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/confirmValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/loyalty_input"
+                    android:fontFamily="sans-serif-black-small-caps"
+                    android:hint="@string/register_confirm"
+                    android:inputType="textPassword"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:password="true"
+                    android:singleLine="true"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/confirmTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/register_confirm_error"
+                    android:textColor="@color/textDefault"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View style="@style/Nandos.Divider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/commsCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/register_check"
+                    android:focusableInTouchMode="false"
+                    android:onClick="onClick"
+                    android:paddingBottom="15dp"
+                    android:src="@drawable/loyalty_checkbox"/>
+
+                <TextView
+                    android:id="@+id/commsTitle"
+                    style="@style/Nandos.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/register_communication"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <View style="@style/Nandos.Divider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/registerButton"
+                    style="@style/Nandos.Button.Red"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/register"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

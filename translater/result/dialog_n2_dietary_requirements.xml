@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+	<LinearLayout
+		style="@style/Nandos.Container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:layout_marginBottom="15dp"
+		android:orientation="vertical"
+		android:padding="15dp" >
+
+		<TextView
+			style="@style/Nandos.TextView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="20dp"
+			android:text="@string/special_dietary_requirements"
+			android:textColor="@color/primary"
+			android:textSize="18sp"
+			tools:ignore="MissingPrefix" />
+
+		<Button
+			android:id="@+id/button_continue"
+			style="@style/Nandos.Button.Red"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:text="@string/account_continue"
+			android:textStyle="bold" />
+	</LinearLayout>
+
+</ScrollView>

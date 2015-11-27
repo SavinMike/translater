@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="intent_tag" type="id"></item>
+    <item name="loader_id_tag" type="id"></item>
+    <item name="tag_list_item" type="id"/>
+    <item name="tag_fragment_tag" type="id"/>
+    <item name="tag_price" type="id"/>
+    
+</resources>

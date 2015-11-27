@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="48dp"
+	android:background="@drawable/btn_red_bg"
+	android:gravity="center_vertical"
+	android:orientation="horizontal"
+	android:paddingLeft="5dp"
+	android:paddingRight="5dp" >
+
+	<ImageView
+		android:id="@+id/image_mag"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/magnifier"
+		tools:ignore="ContentDescription" />
+
+	<LinearLayout
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:orientation="vertical" >
+
+		<TextView
+			android:id="@+id/text_name"
+			style="@style/Nandos.TextView.TitleNorm.Small.White"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:ellipsize="end" />
+
+		<TextView
+			android:id="@+id/text_distance"
+			style="@style/Nandos.TextView.White"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:layout_marginRight="5dp"
+			android:singleLine="true" />
+	</LinearLayout>
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="5dp"
+		android:src="@drawable/arrow"
+		tools:ignore="ContentDescription" />
+
+</LinearLayout>

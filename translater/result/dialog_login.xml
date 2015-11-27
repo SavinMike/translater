@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="match_parent"
+	android:clipChildren="false"
+	android:orientation="vertical"
+	android:padding="5dp" >
+
+	<TextView
+		android:id="@+id/text_title"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:paddingRight="32dp"
+		android:text="Sign in"
+		android:textSize="30sp" />
+
+	<EditText
+		android:id="@+id/edit_login"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/text_title"
+		android:hint="Email or mobile"
+		android:inputType="textEmailAddress" />
+
+	<EditText
+		android:id="@+id/edit_password"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/edit_login"
+		android:hint="Password"
+		android:inputType="textPassword" />
+
+	<Button
+		android:id="@+id/button_singing"
+		style="?attr/button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_below="@id/edit_password"
+		android:text="Sign in" />
+
+	<Button
+		android:id="@+id/button_close"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentTop="true"
+		android:background="@drawable/close_button" />
+
+</RelativeLayout>

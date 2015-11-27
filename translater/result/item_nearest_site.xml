@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical" >
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:background="@drawable/list_item_bg"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp" >
+
+		<TextView
+			android:id="@+id/text_distance"
+			style="@style/Nandos.TextView.White"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="5dp"
+			android:singleLine="true"
+			app:typefacePath="@string/vista_med"
+			tools:ignore="MissingPrefix" />
+
+		<ImageView
+			android:id="@+id/image_mag"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="8dp"
+			android:src="@drawable/restaurant_search_results_icon"
+			tools:ignore="ContentDescription" />
+
+		<TextView
+			android:id="@+id/text_name"
+			style="@style/Nandos.TextView.TitleNorm.Small.White"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_marginLeft="8dp"
+			android:layout_toLeftOf="@id/text_distance"
+			android:layout_toRightOf="@id/image_mag"
+			android:ellipsize="end"
+			app:typefacePath="@string/vista_black"
+			tools:ignore="MissingPrefix" />
+	</RelativeLayout>
+
+	<ImageView
+		android:id="@+id/searchSeparator"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/nandos_logo"
+		android:src="@drawable/restaurant_search_separator" />
+
+</LinearLayout>

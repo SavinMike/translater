@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ViewSwitcher
+        android:id="@+id/switcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                style="@style/Nandos.TextView.TitleCrazy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Updating" />
+
+            <LinearLayout
+                android:id="@+id/view_debug"
+                android:visibility="gone"
+                android:padding="16dp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/spin_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/btn_set_service"
+                    android:text="Set"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FF000000"
+                android:text="Google Play Services requires an update in order to run Google Maps.\nPlease update now." />
+
+            <Button
+                android:id="@+id/btn_update_gps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Update" />
+
+        </LinearLayout>
+
+    </ViewSwitcher>
+
+</RelativeLayout>

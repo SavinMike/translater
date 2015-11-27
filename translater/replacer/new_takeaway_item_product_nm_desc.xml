@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/table_background_body"
+              android:gravity="center"
+              android:orientation="horizontal"
+              android:paddingBottom="5dp"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp"
+              android:paddingTop="5dp">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:typefacePath="@string/vista_black"
+            tools:ignore="MissingPrefix"
+            tools:text="Test"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/view_ingridients"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:padding="4dp"
+        android:src="@drawable/btn_product_ingredient"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/relative_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_cost"
+            style="@style/Nandos.TextView.Header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            android:textColor="@color/textDefault"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:typefacePath="@string/vista_altblack"
+            tools:ignore="MissingPrefix"/>
+
+
+        <com.altaine.nandosuk.ui.views.PlusMinusView
+            android:id="@+id/plus_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_cost"
+            android:layout_centerVertical="true"/>
+
+        <LinearLayout
+            android:id="@+id/image_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/sold_out"
+                tools:ignore="ContentDescription"/>
+
+            <TextView
+                style="@style/Nandos.TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:paddingLeft="4dp"
+                android:paddingTop="8dp"
+                android:text="@string/item_back_soon"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

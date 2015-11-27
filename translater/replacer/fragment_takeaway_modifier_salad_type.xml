@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	style="@style/Nandos.Container"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/block_bg_footer"
+	android:orientation="vertical" >
+
+	<TextView
+		android:id="@+id/text_customize"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:textColor="@color/textDefault"
+		android:textSize="20sp"
+		android:visibility="gone"
+		app:typefacePath="@string/vista_altblack"
+		tools:ignore="MissingPrefix" />
+
+	<View
+		style="@style/Nandos.Divider"
+		android:layout_marginBottom="15dp"
+		android:visibility="gone" />
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" >
+
+		<TextView
+			android:id="@+id/text_section_number"
+			android:layout_width="30sp"
+			android:layout_height="30sp"
+			android:background="@drawable/circle_red"
+			android:gravity="center"
+			android:textColor="@android:color/white"
+			android:textSize="15sp"
+			app:typefacePath="@string/nandos_bold"
+			tools:ignore="MissingPrefix" />
+
+		<TextView
+			android:id="@+id/text_header"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/text_section_number"
+			android:padding="10dp"
+			android:text="Add a grilled chicken breast fillet?"
+			android:textColor="@color/textDefault"
+			android:textSize="18sp"
+			app:typefacePath="@string/vista_altblack"
+			tools:ignore="MissingPrefix" />
+	</RelativeLayout>
+
+	<com.altaine.nandosuk.ui.views.FragmentTabHost
+		android:id="@android:id/tabhost"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" >
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical" >
+
+			<TabWidget
+				android:id="@android:id/tabs"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:orientation="horizontal" />
+
+			<FrameLayout
+				android:id="@android:id/tabcontent"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_marginTop="5dp"
+				android:layout_weight="1" />
+		</LinearLayout>
+	</com.altaine.nandosuk.ui.views.FragmentTabHost>
+
+	<FrameLayout
+		android:id="@+id/frame_divider"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="5dp"
+		android:layout_marginTop="5dp"
+		android:background="@drawable/divider_dot"
+		android:visibility="gone" />
+
+</LinearLayout>

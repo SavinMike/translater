@@ -3,6 +3,8 @@ package test.writer;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -15,11 +17,20 @@ public class CSVWriter<T>
 {
 	private static final char NEW_LINE_SEPARATOR = '\n';
 	private String mDelimiter;
-	private Class<T> mTClass;
+	private Class<? extends T> mTClass;
+	private Type mTypeOfT;
+	private CSVObjectConverter mColumnNameRow;
 
-	public CSVWriter(final String delimiter, final Class<T> tClass)
+	public CSVWriter(final String delimiter, final Class<? extends T> tClass)
 	{
 		mTClass = tClass;
+		mDelimiter = delimiter;
+	}
+
+	public CSVWriter(final String delimiter, final Type typeofT)
+	{
+		mTypeOfT = typeofT;
+		mTClass = (Class<? extends T>) ((ParameterizedType) typeofT).getRawType();
 		mDelimiter = delimiter;
 	}
 
@@ -31,21 +42,33 @@ public class CSVWriter<T>
 		{
 			fileWriter = new FileWriter(file);
 
+			if (mColumnNameRow != null)
+			{
+				fileWriter.append(mColumnNameRow.convert(mDelimiter)).append(NEW_LINE_SEPARATOR);
+			}
+
 			Field[] fields = mTClass.getDeclaredFields();
 			for (T t : tList)
 			{
-				for (Field field : fields)
+				if (t instanceof CSVObjectConverter)
 				{
-					field.setAccessible(true);
-					try
+					fileWriter.append(((CSVObjectConverter) t).convert(mDelimiter));
+				}
+				else
+				{
+					for (Field field : fields)
 					{
+						field.setAccessible(true);
+						try
+						{
 
-						Object o = field.get(t);
-						fileWriter.append(String.valueOf(o));
-						fileWriter.append(mDelimiter);
-					} catch (IllegalAccessException e)
-					{
-						e.printStackTrace();
+							Object o = field.get(t);
+							fileWriter.append(String.valueOf(o));
+							fileWriter.append(mDelimiter);
+						} catch (IllegalAccessException e)
+						{
+							e.printStackTrace();
+						}
 					}
 				}
 				fileWriter.append(NEW_LINE_SEPARATOR);
@@ -59,8 +82,11 @@ public class CSVWriter<T>
 
 			try
 			{
-				fileWriter.flush();
-				fileWriter.close();
+				if(fileWriter!=null)
+				{
+					fileWriter.flush();
+					fileWriter.close();
+				}
 			} catch (IOException e)
 			{
 				System.out.println("Error while flushing/closing fileWriter !!!");
@@ -68,5 +94,11 @@ public class CSVWriter<T>
 			}
 
 		}
+	}
+
+	public CSVWriter setColumnNameRow(final CSVObjectConverter columnNameRow)
+	{
+		mColumnNameRow = columnNameRow;
+		return this;
 	}
 }

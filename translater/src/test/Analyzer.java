@@ -44,7 +44,7 @@ public class Analyzer
 		LinkedHashMap<String, String> unSuccessMap = new LinkedHashMap<>();
 		unSuccessMap.put("", "");
 		List<TranslateModel> unSuccessTranslateModel = new ArrayList<>(translateModels);
-		for (Map.Entry<String, String> entry : resources.map.entrySet())
+		for (Map.Entry<String, String> entry : resources.strings.entrySet())
 		{
 			String value = entry.getValue();
 			if (value == null)

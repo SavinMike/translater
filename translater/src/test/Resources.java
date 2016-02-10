@@ -15,20 +15,20 @@ import java.util.LinkedHashMap;
 public class Resources
 {
 	@ElementMap(entry="string", key="name", attribute=true, inline=true)
-	public LinkedHashMap<String, String> map;
+	public LinkedHashMap<String, String> strings;
 
 	public Resources () {/*do nothing*/}
 
-	public Resources(final LinkedHashMap<String, String> map)
+	public Resources(final LinkedHashMap<String, String> strings)
 	{
-		this.map = map;
+		this.strings = strings;
 	}
 
 	@Override
 	public String toString()
 	{
 		return "Resources{" +
-				"mStringModels=" + map +
+				"mStringModels=" + strings +
 				'}';
 	}
 }

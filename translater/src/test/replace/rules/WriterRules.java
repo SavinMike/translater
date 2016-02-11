@@ -1,0 +1,14 @@
+package test.replace.rules;
+
+import test.model.TranslateItem;
+
+/**
+ * Date: 11.02.2016
+ * Time: 13:03
+ *
+ * @author Savin Mikhail
+ */
+public interface WriterRules
+{
+	<E extends Enum<E>> String updateString(TranslateItem<E> translateItem, E language);
+}

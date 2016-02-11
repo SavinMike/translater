@@ -1,13 +1,10 @@
 package test.reader.ios;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
-import test.reader.Reader;
+import test.reader.ReaderRules;
+import test.reader.RuleReaderList;
 
 /**
  * Date: 09.02.2016
@@ -15,47 +12,48 @@ import test.reader.Reader;
  *
  * @author Savin Mikhail
  */
-public class IosResourcesReader implements Reader<List<IosString>>
+public class IosResourcesReader extends RuleReaderList<IosString>
 {
-	@Override
-	public List<IosString> readFile(final String file)
-	{
 
-		List<IosString> result = new ArrayList<>();
-		try
+	private final ReaderRules iosReaderRules;
+
+	public IosResourcesReader()
+	{
+		iosReaderRules = new IosRule();
+		iosReaderRules.setRulesActionsListener(new ReaderRules.RulesActionsListener()
 		{
-			Scanner scanner = new Scanner(new FileInputStream(file), "UTF-8");
 			List<String> comments = new ArrayList<>();
-			while (scanner.hasNextLine())
+			String id;
+			String value;
+
+			@Override
+			public void onAction(final ReaderRules.ActionType actionType, final String next, final String realString)
 			{
-				String next = scanner.nextLine();
-				if (Pattern.matches("/\\*.*", next))
+				switch (actionType)
 				{
-					comments.add(next);
-				}
-				else if (Pattern.matches("//.*", next))
-				{
-					comments.add(next);
-				}
-				else if (Pattern.matches(".*\\*/$", next))
-				{
-					comments.add(next);
-				}
-				else if (Pattern.matches("\".*\" = \".*\";", next))
-				{
-					String[] split = next.split("\"");
-					result.add(new IosString(split[1], split[3], new ArrayList<>(comments)));
-					comments.clear();
-				} else if(!next.isEmpty()){
-					comments.add(next);
+
+					case COMMENT:
+						comments.add(next);
+						break;
+					case ID:
+						id = next.contains(IosRule.QUOT) ? "\"" + next.replaceAll(IosRule.QUOT, "\"\"") + "\"" : next;
+						break;
+					case VALUE:
+						value = next.contains(IosRule.QUOT) ? "\"" + next.replaceAll(IosRule.QUOT, "\"\"") + "\"" : next;
+						break;
+					case DONE:
+						addToList(new IosString(id, value, comments));
+						comments.clear();
+						break;
 				}
 			}
+		});
+	}
 
-		} catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
 
-		return result;
+	@Override
+	protected ReaderRules getReaderRules()
+	{
+		return iosReaderRules;
 	}
 }

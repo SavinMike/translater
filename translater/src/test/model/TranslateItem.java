@@ -1,9 +1,10 @@
-package test;
+package test.model;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import test.writer.CSVObjectConverter;
+import test.writer.CsvHistory;
 
 /**
  * Date: 09.02.2016
@@ -11,7 +12,7 @@ import test.writer.CSVObjectConverter;
  *
  * @author Savin Mikhail
  */
-public class TranslateItem<T extends Enum<T>> implements CSVObjectConverter
+public class TranslateItem<T extends Enum<T>> implements CSVObjectConverter<T>
 {
 	public final String key;
 	private final Map<T, String> values = new HashMap<>();
@@ -29,26 +30,9 @@ public class TranslateItem<T extends Enum<T>> implements CSVObjectConverter
 		values.put(language, value);
 	}
 
-	@Override
-	public String convert(final String delimiter)
+	public boolean contains(T language)
 	{
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append(key).append(delimiter);
-		for (T t : enumClass.getEnumConstants())
-		{
-			if (values.containsKey(t))
-			{
-				stringBuilder.append(values.get(t).replaceAll("\\t", "    "));
-			}
-			else
-			{
-				stringBuilder.append("");
-			}
-
-			stringBuilder.append(delimiter);
-		}
-
-		return stringBuilder.toString();
+		return values.containsKey(language);
 	}
 
 	@Override
@@ -72,12 +56,34 @@ public class TranslateItem<T extends Enum<T>> implements CSVObjectConverter
 	public String getValue(T languageEnum)
 	{
 		String s = values.get(languageEnum);
-		return s == null ? "" : s.trim().toLowerCase();
+		return s == null ? "" : s;
 	}
 
 	@Override
 	public int hashCode()
 	{
 		return key != null ? key.hashCode() : 0;
+	}
+
+	@Override
+	public <H extends CsvHistory<T>> String convert(final String delimiter, final H history)
+	{
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(key).append(delimiter);
+		for (T t : history.getEnumSet())
+		{
+			if (values.containsKey(t))
+			{
+				stringBuilder.append(values.get(t).replaceAll("\\t", "    "));
+			}
+			else
+			{
+				stringBuilder.append("");
+			}
+
+			stringBuilder.append(delimiter);
+		}
+
+		return stringBuilder.toString();
 	}
 }

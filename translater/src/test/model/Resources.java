@@ -1,4 +1,4 @@
-package test;
+package test.model;
 
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;

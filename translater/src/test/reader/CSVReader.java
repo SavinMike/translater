@@ -15,10 +15,11 @@ import test.exception.IncorrectLineException;
  *
  * @author Savin Mikhail
  */
-public abstract class CSVReader<T> implements Reader<List<T>>
+public abstract class CSVReader<T, H> implements Reader<List<T>>
 {
 	private final String mDelimiter;
 	private List<T> mResult = new ArrayList<>();
+	private LineConverterReader<H> mLineConverterReader;
 
 	public CSVReader(final String delimiter)
 	{
@@ -33,12 +34,27 @@ public abstract class CSVReader<T> implements Reader<List<T>>
 		try
 		{
 			br = new BufferedReader(new FileReader(file));
+			boolean firstLine = true;
+			H history = null;
 			while ((line = br.readLine()) != null)
 			{
-				String[] strings = line.split(mDelimiter);
+				List<String> stringsList = new ArrayList<>();
+				String copyLine = line;
+				while (copyLine.contains(mDelimiter)){
+					int endIndex = copyLine.indexOf(mDelimiter);
+					stringsList.add(copyLine.substring(0, endIndex));
+					copyLine = copyLine.substring(endIndex+1);
+				}
+				String[] strings = stringsList.toArray(new String[stringsList.size()]);
+				if (firstLine)
+				{
+					history = mLineConverterReader.convertHistory(strings);
+					firstLine = false;
+					continue;
+				}
 				try
 				{
-					T byLine = getByLine(strings);
+					T byLine = getByLine(strings, history);
 					mResult.add(byLine);
 				} catch (IncorrectLineException e)
 				{
@@ -68,5 +84,11 @@ public abstract class CSVReader<T> implements Reader<List<T>>
 		}
 	}
 
-	public abstract T getByLine(String[] strings) throws IncorrectLineException;
+	public abstract T getByLine(String[] strings, H history) throws IncorrectLineException;
+
+	public CSVReader setLineConverterReader(final LineConverterReader<H> lineConverterReader)
+	{
+		mLineConverterReader = lineConverterReader;
+		return this;
+	}
 }

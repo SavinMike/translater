@@ -5,7 +5,7 @@ import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
 
-import test.Resources;
+import test.model.Resources;
 
 
 /**

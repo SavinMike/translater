@@ -18,8 +18,7 @@ public class CSVWriter<T>
 	private static final char NEW_LINE_SEPARATOR = '\n';
 	private String mDelimiter;
 	private Class<? extends T> mTClass;
-	private Type mTypeOfT;
-	private CSVObjectConverter mColumnNameRow;
+	private CsvHistory<?> mCsvHistory;
 
 	public CSVWriter(final String delimiter, final Class<? extends T> tClass)
 	{
@@ -29,7 +28,6 @@ public class CSVWriter<T>
 
 	public CSVWriter(final String delimiter, final Type typeofT)
 	{
-		mTypeOfT = typeofT;
 		mTClass = (Class<? extends T>) ((ParameterizedType) typeofT).getRawType();
 		mDelimiter = delimiter;
 	}
@@ -42,9 +40,9 @@ public class CSVWriter<T>
 		{
 			fileWriter = new FileWriter(file);
 
-			if (mColumnNameRow != null)
+			if (mCsvHistory != null)
 			{
-				fileWriter.append(mColumnNameRow.convert(mDelimiter)).append(NEW_LINE_SEPARATOR);
+				fileWriter.append(mCsvHistory.createHistory(mDelimiter)).append(NEW_LINE_SEPARATOR);
 			}
 
 			Field[] fields = mTClass.getDeclaredFields();
@@ -52,7 +50,7 @@ public class CSVWriter<T>
 			{
 				if (t instanceof CSVObjectConverter)
 				{
-					fileWriter.append(((CSVObjectConverter) t).convert(mDelimiter));
+					fileWriter.append(((CSVObjectConverter) t).convert(mDelimiter, mCsvHistory));
 				}
 				else
 				{
@@ -82,7 +80,7 @@ public class CSVWriter<T>
 
 			try
 			{
-				if(fileWriter!=null)
+				if (fileWriter != null)
 				{
 					fileWriter.flush();
 					fileWriter.close();
@@ -96,9 +94,8 @@ public class CSVWriter<T>
 		}
 	}
 
-	public CSVWriter setColumnNameRow(final CSVObjectConverter columnNameRow)
+	public void setCsvHistory(final CsvHistory<?> csvHistory)
 	{
-		mColumnNameRow = columnNameRow;
-		return this;
+		mCsvHistory = csvHistory;
 	}
 }

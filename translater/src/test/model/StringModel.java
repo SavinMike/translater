@@ -1,4 +1,4 @@
-package test;
+package test.model;
 
 /**
  * Date: 19.10.2015

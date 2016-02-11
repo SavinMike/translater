@@ -1,4 +1,4 @@
-package test;
+package test.model;
 
 /**
  * Date: 19.10.2015
@@ -20,7 +20,7 @@ public class TranslateModel
 	@Override
 	public String toString()
 	{
-		return "test.TranslateModel{" +
+		return "test.model.TranslateModel{" +
 				"english='" + english + '\'' +
 				", fi='" + fi + '\'' +
 				"}\n";

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import test.exception.IncorrectLineException;
+import test.model.Resources;
+import test.model.TranslateModel;
 import test.reader.CSVReader;
 import test.reader.Reader;
 import test.reader.XMLReader;
@@ -22,10 +24,10 @@ public class Analyzer
 {
 	public void analize(String csvFile, String xmlFile)
 	{
-		Reader<List<TranslateModel>> csvReader = new CSVReader<TranslateModel>(";")
+		Reader<List<TranslateModel>> csvReader = new CSVReader<TranslateModel, Object>(";")
 		{
 			@Override
-			public TranslateModel getByLine(final String[] strings) throws IncorrectLineException
+			public TranslateModel getByLine(final String[] strings, Object history) throws IncorrectLineException
 			{
 				if(strings.length > 1)
 				{

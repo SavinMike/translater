@@ -1,12 +1,10 @@
 package test.reader.web;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-import test.reader.Reader;
+import test.reader.ReaderRules;
+import test.reader.RuleReaderList;
 
 /**
  * Date: 10.02.2016
@@ -14,65 +12,53 @@ import test.reader.Reader;
  *
  * @author Savin Mikhail
  */
-public class WebPoReader implements Reader<List<WebString>>
+public class WebPoReader extends RuleReaderList<WebString>
 {
-	@Override
-	public List<WebString> readFile(final String file)
+
+	private final ReaderRules mReaderRules;
+
+	public WebPoReader()
 	{
-
-		List<WebString> result = new ArrayList<>();
-		try
+		mReaderRules = new PoRules();
+		mReaderRules.setRulesActionsListener(new PoRules.RulesActionsListener()
 		{
-			Scanner scanner = new Scanner(new FileInputStream(file), "UTF-8");
-			List<String> comments = new ArrayList<>();
+			final List<String> comments = new ArrayList<>();
 
-			StringBuilder msgid = new StringBuilder();
-			StringBuilder msgstr = new StringBuilder();
+			final StringBuilder msgid = new StringBuilder();
+			final StringBuilder msgstr = new StringBuilder();
 
-			boolean startId = false;
-			boolean startStr = false;
-			while (scanner.hasNextLine())
+			@Override
+			public void onAction(final PoRules.ActionType actionType, final String next, final String realString)
 			{
-				String next = scanner.nextLine();
-				if (next.trim().isEmpty())
+				switch (actionType)
 				{
-					WebString webString = new WebString(new ArrayList<>(comments), msgid.toString(), msgstr.toString());
-					result.add(webString);
-					System.out.println(webString.toString());
 
-					msgid = new StringBuilder();
-					msgstr = new StringBuilder();
-					comments.clear();
-					startId = false;
-					startStr = false;
-				} else if (next.startsWith("#"))
-				{
-					startId = false;
-					startStr = false;
+					case COMMENT:
+						comments.add(next);
+						break;
+					case ID:
+						msgid.append(next);
+						break;
+					case VALUE:
+						msgstr.append(next);
+						break;
+					case DONE:
+						WebString webString = new WebString(new ArrayList<>(comments), msgid.toString(), msgstr.toString());
+						addToList(webString);
+						System.out.println(webString.toString());
 
-					comments.add(next);
-				}
-				else if (next.startsWith(WebString.TRANSLATE) || startStr)
-				{
-					startStr = true;
-					startId = false;
-
-					msgstr.append(next.substring(next.indexOf("\"") + 1, next.lastIndexOf("\"")));
-				}
-				else if (next.startsWith(WebString.ID) || startId)
-				{
-					startId = true;
-					startStr = false;
-
-					msgid.append(next.substring(next.indexOf("\"") + 1, next.lastIndexOf("\"")));
+						msgid.setLength(0);
+						msgstr.setLength(0);
+						comments.clear();
+						break;
 				}
 			}
+		});
+	}
 
-		} catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-
-		return result;
+	@Override
+	protected ReaderRules getReaderRules()
+	{
+		return mReaderRules;
 	}
 }

@@ -1,18 +1,17 @@
 package test.xponia;
 
+import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
+import test.TranlaterFromCsv;
 import test.exception.IncorrectLineException;
 import test.model.PlatformVariants;
 import test.model.TranslateItem;
 import test.reader.CSVReader;
 import test.reader.LineConverterReader;
-import test.replace.TranslateUpdateReader;
-import test.replace.ValueChanger;
-import test.replace.rules.WebWriterRules;
+import test.reader.ReaderRules;
 
 /**
  * Date: 10.02.2016
@@ -45,7 +44,7 @@ public class XponiaTranlaterFromCsv
 				if (string.startsWith("\""))
 				{
 					String s = string.replaceFirst("\"", "");
-					return s.substring(0, s.lastIndexOf("\"")).replaceAll("\"\"", "\\\\\"");
+					return s.substring(0, s.lastIndexOf("\"")).replaceAll("\"\"", ReaderRules.QUOT);
 				}
 
 				return string;
@@ -73,13 +72,10 @@ public class XponiaTranlaterFromCsv
 			}
 		});
 
-		List<TranslateItem<LanguageEnum>> translateItems = csvReader.readFile("Xponia/csv/web.csv");
-
-		new ValueChanger<>(new TranslateUpdateReader<>(PlatformVariants.WEB, new WebWriterRules(), LanguageEnum.DE)).updateValue("/home/arello/Work/translaterGit/translater/Xponia/web/django_de_test.po", translateItems);
-
-//		List<TranslateItem<LanguageEnum>> translateItems = csvReader.readFile("Xponia/csv/ios.csv");
-//
-//		new ValueChanger<>(new TranslateUpdateReader<>(PlatformVariants.IOS, new IosWriterRules(), LanguageEnum.DE)).updateValue("/home/arello/Work/translaterGit/translater/Xponia/ios/Localizable_de_test.txt", translateItems);
-
+		TranlaterFromCsv<LanguageEnum, XponiaHistory> tranlaterFromCsv = new TranlaterFromCsv<>("Xponia/", LanguageEnum.class);
+		for (PlatformVariants platformVariants : EnumSet.allOf(PlatformVariants.class))
+		{
+			tranlaterFromCsv.readFromCsv(csvReader, platformVariants);
+		}
 	}
 }

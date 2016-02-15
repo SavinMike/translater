@@ -23,7 +23,7 @@ public class XponiaTranslaterToCsv
 	public static void main(String[] args)
 	{
 		TranslaterToCsv<LanguageEnum, XponiaHistory> translaterToCsv = new TranslaterToCsv<>(LanguageEnum.class, "Xponia/");
-		translaterToCsv.setHistory(new XponiaHistory(EnumSet.of(LanguageEnum.DE)));
+		translaterToCsv.setHistory(new XponiaHistory(EnumSet.allOf(LanguageEnum.class)));
 		translaterToCsv.readAndWriteToCsv(new XMLReader(), new AndroidWriteConverter(), PlatformVariants.ANDROID);
 		translaterToCsv.readAndWriteToCsv(new IosResourcesReader(), new IosWriteConverter(), PlatformVariants.IOS);
 		translaterToCsv.readAndWriteToCsv(new WebPoReader(), new WebWriteConverter(), PlatformVariants.WEB);

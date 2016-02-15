@@ -3,7 +3,7 @@ package test.replace;
 import test.model.PlatformVariants;
 import test.reader.ReaderRules;
 import test.reader.RuleReaderList;
-import test.replace.rules.ActionListenerFactory;
+import test.replace.rules.RulesFactory;
 
 /**
  * Date: 11.02.2016
@@ -18,7 +18,7 @@ public abstract class UpdateReader<U> extends RuleReaderList<String>
 
 	public UpdateReader(PlatformVariants platformVariants)
 	{
-		mReaderRules = ActionListenerFactory.getRules(platformVariants, this);
+		mReaderRules = RulesFactory.getRules(platformVariants, this);
 	}
 
 
@@ -32,13 +32,15 @@ public abstract class UpdateReader<U> extends RuleReaderList<String>
 		this.update = update;
 	}
 
-	public abstract String getUpdatedString(final String key);
+	public abstract String getUpdatedString(final String key, final String realString);
 
 	@Override
 	public ReaderRules getReaderRules()
 	{
 		return mReaderRules;
 	}
+
+	public abstract void addNewTranslate(final String next);
 
 
 }

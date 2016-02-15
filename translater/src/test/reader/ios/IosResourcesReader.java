@@ -36,10 +36,10 @@ public class IosResourcesReader extends RuleReaderList<IosString>
 						comments.add(next);
 						break;
 					case ID:
-						id = next.contains(IosRule.QUOT) ? "\"" + next.replaceAll(IosRule.QUOT, "\"\"") + "\"" : next;
+						id = next.contains(ReaderRules.QUOT) ? "\"" + next.replaceAll(ReaderRules.QUOT, "\"\"") + "\"" : next;
 						break;
 					case VALUE:
-						value = next.contains(IosRule.QUOT) ? "\"" + next.replaceAll(IosRule.QUOT, "\"\"") + "\"" : next;
+						value = next.contains(ReaderRules.QUOT) ? "\"" + next.replaceAll(ReaderRules.QUOT, "\"\"") + "\"" : next;
 						break;
 					case DONE:
 						addToList(new IosString(id, value, comments));

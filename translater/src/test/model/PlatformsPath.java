@@ -9,4 +9,8 @@ package test.model;
 public interface PlatformsPath
 {
 	String[] getPaths(PlatformVariants platformVariants);
+
+	String[] getFileNames(PlatformVariants platformVariants);
+
+	String getCsvName(PlatformVariants platformVariants, String path);
 }

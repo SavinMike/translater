@@ -1,7 +1,6 @@
 package test.reader;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ import test.exception.IncorrectLineException;
 public abstract class CSVReader<T, H> implements Reader<List<T>>
 {
 	private final String mDelimiter;
-	private List<T> mResult = new ArrayList<>();
 	private LineConverterReader<H> mLineConverterReader;
 
 	public CSVReader(final String delimiter)
@@ -29,6 +27,7 @@ public abstract class CSVReader<T, H> implements Reader<List<T>>
 	@Override
 	public List<T> readFile(final String file)
 	{
+		List<T> result = new ArrayList<>();
 		BufferedReader br = null;
 		String line;
 		try
@@ -45,6 +44,10 @@ public abstract class CSVReader<T, H> implements Reader<List<T>>
 					stringsList.add(copyLine.substring(0, endIndex));
 					copyLine = copyLine.substring(endIndex+1);
 				}
+
+				if(!copyLine.isEmpty()){
+					stringsList.add(copyLine);
+				}
 				String[] strings = stringsList.toArray(new String[stringsList.size()]);
 				if (firstLine)
 				{
@@ -55,16 +58,13 @@ public abstract class CSVReader<T, H> implements Reader<List<T>>
 				try
 				{
 					T byLine = getByLine(strings, history);
-					mResult.add(byLine);
+					result.add(byLine);
 				} catch (IncorrectLineException e)
 				{
 					e.printStackTrace();
 				}
 			}
 
-		} catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
 		} catch (IOException e)
 		{
 			e.printStackTrace();
@@ -80,8 +80,9 @@ public abstract class CSVReader<T, H> implements Reader<List<T>>
 					e.printStackTrace();
 				}
 			}
-			return mResult;
 		}
+
+		return result;
 	}
 
 	public abstract T getByLine(String[] strings, H history) throws IncorrectLineException;

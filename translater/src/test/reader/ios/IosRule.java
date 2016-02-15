@@ -3,6 +3,7 @@ package test.reader.ios;
 import java.util.regex.Pattern;
 
 import test.reader.ReaderRules;
+import test.reader.RuleReaderList;
 
 /**
  * Date: 11.02.2016
@@ -16,6 +17,11 @@ public class IosRule extends ReaderRules
 	@Override
 	public void checkStringLine(final String next)
 	{
+		if(next.equals(RuleReaderList.END_OF_FILE)){
+			notifyListener(ActionType.END_OF_FILE, null);
+			return;
+		}
+
 		if (Pattern.matches("/\\*.*", next))
 		{
 			notifyListener(ActionType.COMMENT, next);
@@ -28,7 +34,7 @@ public class IosRule extends ReaderRules
 		{
 			notifyListener(ActionType.COMMENT, next);
 		}
-		else if (Pattern.matches("\".*\"[ ]*=[ ]*\".*\";", next))
+		else if (Pattern.matches("\".*\"[ ]*=[ ]*\".*\";[ ]*[//]*.*", next))
 		{
 			String[] split = next.replaceAll("\\\\\\\"", IosRule.QUOT).split("\"");
 

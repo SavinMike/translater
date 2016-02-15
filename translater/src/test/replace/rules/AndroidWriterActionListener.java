@@ -3,14 +3,13 @@ package test.replace.rules;
 import test.reader.ReaderRules;
 import test.replace.UpdateReader;
 
-public class WebWriterActionListener implements ReaderRules.RulesActionsListener
+public class AndroidWriterActionListener implements ReaderRules.RulesActionsListener
 {
-	private StringBuilder id = new StringBuilder();
-	private StringBuilder str = new StringBuilder();
+	private String id = "";
 	private boolean updated = false;
 	private final UpdateReader<?> mUpdateReader;
 
-	public WebWriterActionListener(UpdateReader<?> updateReader)
+	public AndroidWriterActionListener(UpdateReader<?> updateReader)
 	{
 		mUpdateReader = updateReader;
 	}
@@ -21,11 +20,12 @@ public class WebWriterActionListener implements ReaderRules.RulesActionsListener
 		switch (actionType)
 		{
 			case COMMENT:
+				mUpdateReader.addToList(realString);
 				updated = false;
 				break;
 			case ID:
 				updated = false;
-				id.append(next);
+				id = next;
 				break;
 			case VALUE:
 				if (updated)
@@ -33,37 +33,23 @@ public class WebWriterActionListener implements ReaderRules.RulesActionsListener
 					return;
 				}
 
-				String updatedString = mUpdateReader.getUpdatedString(id.toString(), realString);
+				String updatedString = mUpdateReader.getUpdatedString(id, realString);
 
-				if (updatedString != null)
+				if (updatedString == null || !updatedString.equals(realString))
 				{
-					mUpdateReader.addToList(updatedString);
 					updated = true;
-					return;
 				}
 
-				str.append(next);
+				mUpdateReader.addToList(updatedString);
 				break;
 			case EMPTY:
+				mUpdateReader.addToList("\n");
+				break;
 			case END_OF_FILE:
 				mUpdateReader.addNewTranslate(next);
 				return;
 			case DONE:
-				id.setLength(0);
-				str.setLength(0);
 				break;
-		}
-
-		if (realString != null)
-		{
-			if (!realString.isEmpty())
-			{
-				mUpdateReader.addToList(realString);
-			}
-			else
-			{
-				mUpdateReader.addToList("\n");
-			}
 		}
 	}
 }

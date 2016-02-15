@@ -2,127 +2,64 @@ package test.xponia;
 
 import test.model.PlatformVariants;
 import test.model.PlatformsPath;
+import test.replace.rules.LangageChaecker;
+import test.utils.FilenameUtils;
 
-public enum LanguageEnum implements PlatformsPath
+public enum LanguageEnum implements PlatformsPath, LangageChaecker
 {
-	EN
-			{
-				@Override
-				public String[] getPaths(final PlatformVariants platformVariants)
-				{
-					switch (platformVariants)
-					{
-						case IOS:
-							return new String[]{"Localizable_en"};
-						case ANDROID:
-							return new String[]{"strings_en.xml"};
-						case WEB:
-							return new String[]{"django_en.po", "djangojs_en.po"};
-						default:
-							return new String[]{};
-					}
-				}
-			},
-	HU
-			{
-				@Override
-				public String[] getPaths(final PlatformVariants platformVariants)
-				{
-					switch (platformVariants)
-					{
-						case IOS:
-							return new String[]{"Localizable_hu"};
-						case ANDROID:
-							return new String[]{"strings_hu.xml"};
-						case WEB:
-						default:
-							return new String[]{};
-					}
-				}
-			},
-	DE
-			{
-				@Override
-				public String[] getPaths(final PlatformVariants platformVariants)
-				{
-					switch (platformVariants)
-					{
-						case IOS:
-							return new String[]{"Localizable_de"};
-						case ANDROID:
-							return new String[]{"strings_de.xml"};
-						case WEB:
-							return new String[]{"django_de.po", "djangojs_de.po"};
-						default:
-							return new String[]{};
-					}
-				}
-			},
+	EN,	HU,	DE;
 
-	DEMO_DE
-			{
-				@Override
-				public String[] getPaths(final PlatformVariants platformVariants)
-				{
-					switch (platformVariants)
-					{
-						case IOS:
-							return new String[]{"Demo_de.strings"};
-						case ANDROID:
-						case WEB:
-						default:
-							return new String[]{};
-					}
-				}
-			},
-	ALLEE_DE
-			{
-				@Override
-				public String[] getPaths(final PlatformVariants platformVariants)
-				{
-					switch (platformVariants)
-					{
-						case IOS:
-							return new String[]{"Allee_de.strings"};
-						case ANDROID:
-						case WEB:
-						default:
-							return new String[]{};
-					}
-				}
-			},
-	DEMO_EN
-			{
-				@Override
-				public String[] getPaths(final PlatformVariants platformVariants)
-				{
-					switch (platformVariants)
-					{
-						case IOS:
-							return new String[]{"Demo_en.strings"};
-						case ANDROID:
-						case WEB:
-						default:
-							return new String[]{};
-					}
-				}
-			},
-	ALLEE_EN
-			{
-				@Override
-				public String[] getPaths(final PlatformVariants platformVariants)
-				{
-					switch (platformVariants)
-					{
-						case IOS:
-							return new String[]{"Allee_en.strings"};
-						case ANDROID:
-						case WEB:
-						default:
-							return new String[]{};
-					}
-				}
-			},;
+	@Override
+	public String[] getPaths(final PlatformVariants platformVariants)
+	{
+		String[] result = getFileNames(platformVariants);
 
-	public abstract String[] getPaths(final PlatformVariants platformVariants);
+		for (int i = 0; i < result.length; i++)
+		{
+			result[i] = getPrefix() + result[i];
+		}
+
+		return result;
+	}
+
+	@Override
+	public String[] getFileNames(final PlatformVariants platformVariants)
+	{
+		String[] result;
+		switch (platformVariants)
+		{
+			case IOS:
+				result = new String[]{"Localizable"};
+				break;
+			case ANDROID:
+				result = new String[]{"strings.xml"};
+				break;
+			case WEB:
+				result = new String[]{"django.po", "djangojs.po"};
+				break;
+			default:
+				result = new String[]{};
+				break;
+		}
+		return result;
+	}
+
+	@Override
+	public String getCsvName(final PlatformVariants platformVariants, final String path)
+	{
+		return platformVariants.name().toLowerCase() + "_" + FilenameUtils.getBaseName(path) + ".tsv";
+	}
+
+	public String getPrefix()
+	{
+		return name().toLowerCase() + "/";
+	}
+
+	@Override
+	public boolean isDefault()
+	{
+		return this == EN;
+	}
+
+
 }

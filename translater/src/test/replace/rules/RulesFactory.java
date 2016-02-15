@@ -2,6 +2,7 @@ package test.replace.rules;
 
 import test.model.PlatformVariants;
 import test.reader.ReaderRules;
+import test.reader.android.AndroidRules;
 import test.reader.ios.IosRule;
 import test.reader.web.PoRules;
 import test.replace.UpdateReader;
@@ -12,7 +13,7 @@ import test.replace.UpdateReader;
  *
  * @author Savin Mikhail
  */
-public class ActionListenerFactory
+public class RulesFactory
 {
 	public static ReaderRules getRules(PlatformVariants platformVariants, UpdateReader<?> translateUpdateReader)
 	{
@@ -21,6 +22,7 @@ public class ActionListenerFactory
 		{
 
 			case ANDROID:
+				readerRules = new AndroidRules();
 				break;
 			case IOS:
 				readerRules = new IosRule();
@@ -30,12 +32,29 @@ public class ActionListenerFactory
 				break;
 		}
 
-		if (readerRules != null)
-		{
-			readerRules.setRulesActionsListener(getActionListener(platformVariants, translateUpdateReader));
-		}
+		readerRules.setRulesActionsListener(getActionListener(platformVariants, translateUpdateReader));
 
 		return readerRules;
+	}
+
+	public static WriterRules getWriteRules(PlatformVariants platformVariants)
+	{
+		WriterRules writerRules = null;
+		switch (platformVariants)
+		{
+
+			case ANDROID:
+				writerRules = new AndroidWriterRules();
+				break;
+			case IOS:
+				writerRules = new IosWriterRules();
+				break;
+			case WEB:
+				writerRules = new WebWriterRules();
+				break;
+		}
+
+		return writerRules;
 	}
 
 	private static ReaderRules.RulesActionsListener getActionListener(PlatformVariants platformVariants, UpdateReader<?> translateUpdateReader)
@@ -44,7 +63,7 @@ public class ActionListenerFactory
 		{
 
 			case ANDROID:
-				break;
+				return new AndroidWriterActionListener(translateUpdateReader);
 			case IOS:
 				return new IosWriterActionListener(translateUpdateReader);
 			case WEB:

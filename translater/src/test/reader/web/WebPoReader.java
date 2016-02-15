@@ -42,8 +42,11 @@ public class WebPoReader extends RuleReaderList<WebString>
 					case VALUE:
 						msgstr.append(next);
 						break;
+					case END_OF_FILE:
 					case DONE:
-						WebString webString = new WebString(new ArrayList<>(comments), msgid.toString(), msgstr.toString());
+						String id = msgid.toString().contains(ReaderRules.QUOT)? "\"" + msgid.toString().replaceAll(ReaderRules.QUOT, "\"\"") + "\"" : msgid.toString();
+						String msgStr = msgstr.toString().contains(ReaderRules.QUOT)? "\"" + msgstr.toString().replaceAll(ReaderRules.QUOT, "\"\"") + "\"" : msgstr.toString();
+						WebString webString = new WebString(new ArrayList<>(comments), id, msgStr);
 						addToList(webString);
 						System.out.println(webString.toString());
 

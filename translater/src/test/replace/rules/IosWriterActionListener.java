@@ -5,8 +5,8 @@ import test.replace.UpdateReader;
 
 public class IosWriterActionListener implements ReaderRules.RulesActionsListener
 {
-	private String id = new String();
-	private String str = new String();
+	private String id = "";
+	private String str = "";
 	private final UpdateReader<?> mUpdateReader;
 
 	public IosWriterActionListener(UpdateReader<?> updateReader)
@@ -26,12 +26,16 @@ public class IosWriterActionListener implements ReaderRules.RulesActionsListener
 				id = next;
 				break;
 			case VALUE:
-				String updatedString = mUpdateReader.getUpdatedString(id);
+				String updatedString = mUpdateReader.getUpdatedString(id, realString);
 				str = updatedString == null ? next : updatedString;
 				mUpdateReader.addToList(str);
 				break;
 			case EMPTY:
 				mUpdateReader.addToList("\n");
+				break;
+			case END_OF_FILE:
+				mUpdateReader.addNewTranslate(next);
+				return;
 			case DONE:
 				break;
 		}

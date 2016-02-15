@@ -74,7 +74,8 @@ public class TranslateItem<T extends Enum<T>> implements CSVObjectConverter<T>
 		{
 			if (values.containsKey(t))
 			{
-				stringBuilder.append(values.get(t).replaceAll("\\t", "    "));
+				String s = values.get(t);
+				stringBuilder.append(s == null ? "" : s.replaceAll("\\t", "    "));
 			}
 			else
 			{

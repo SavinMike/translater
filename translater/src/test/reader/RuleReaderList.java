@@ -14,7 +14,15 @@ import java.util.Scanner;
  */
 public abstract class RuleReaderList<T> implements Reader<List<T>>
 {
+	public static final String END_OF_FILE = "${END_OF_FILE}";
 	private List<T> result = new ArrayList<>();
+
+	private boolean mAddEmptyInEnd = true;
+
+	public void setAddEmptyInEnd(final boolean addEmptyInEnd)
+	{
+		mAddEmptyInEnd = addEmptyInEnd;
+	}
 
 	@Override
 	public List<T> readFile(final String file)
@@ -31,7 +39,7 @@ public abstract class RuleReaderList<T> implements Reader<List<T>>
 				getReaderRules().checkStringLine(next);
 
 				if(!scanner.hasNextLine()){
-					getReaderRules().checkStringLine("");
+					getReaderRules().checkStringLine(END_OF_FILE);
 				}
 			}
 
@@ -46,6 +54,9 @@ public abstract class RuleReaderList<T> implements Reader<List<T>>
 
 	public void addToList(T item)
 	{
-		result.add(item);
+		if(item!=null)
+		{
+			result.add(item);
+		}
 	}
 }

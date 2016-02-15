@@ -29,11 +29,12 @@ public class ValueChanger<U>
 		{
 			List<String> content = mReader.readFile(filePath);
 			StringBuilder stringBuilder = new StringBuilder();
-			for (String line : content)
+			for (int i = 0; i < content.size(); i++)
 			{
+				String line = content.get(i);
 				stringBuilder.append(line);
 
-				if (!"\n".equals(line))
+				if (!"\n".equals(line) && !line.isEmpty() && i < content.size() - 1)
 				{
 					stringBuilder.append("\n");
 				}

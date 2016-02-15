@@ -1,6 +1,7 @@
 package test.reader.web;
 
 import test.reader.ReaderRules;
+import test.reader.RuleReaderList;
 
 /**
  * Date: 11.02.2016
@@ -10,14 +11,17 @@ import test.reader.ReaderRules;
  */
 public class PoRules extends ReaderRules
 {
-	public static final String NEW_LINE = "\\n";
-
 	private boolean startId = false;
 	private boolean startStr = false;
 
 	@Override
 	public void checkStringLine(String next)
 	{
+		if(next.equals(RuleReaderList.END_OF_FILE)){
+			notifyListener(ActionType.END_OF_FILE, null);
+			return;
+		}
+
 		if (next.trim().isEmpty())
 		{
 			notifyListener(ActionType.DONE, next);
@@ -38,7 +42,7 @@ public class PoRules extends ReaderRules
 
 			try
 			{
-				notifyListener(ActionType.VALUE, next.substring(next.indexOf("\"") + 1, next.lastIndexOf("\"")), next);
+				notifyListener(ActionType.VALUE, next.substring(next.indexOf("\"") + 1, next.lastIndexOf("\"")).replaceAll("\\\\\\\"", ReaderRules.QUOT), next);
 			}catch (StringIndexOutOfBoundsException e){
 				System.out.println(next);
 			}
@@ -48,7 +52,7 @@ public class PoRules extends ReaderRules
 			startId = true;
 			startStr = false;
 
-			notifyListener(ActionType.ID, next.substring(next.indexOf("\"") + 1, next.lastIndexOf("\"")), next);
+			notifyListener(ActionType.ID, next.substring(next.indexOf("\"") + 1, next.lastIndexOf("\"")).replaceAll("\\\\\\\"", ReaderRules.QUOT), next);
 		}
 	}
 }

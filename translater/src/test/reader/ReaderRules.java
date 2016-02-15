@@ -42,6 +42,6 @@ public abstract class ReaderRules
 
 	public enum ActionType
 	{
-		COMMENT, ID, VALUE, DONE, EMPTY;
+		COMMENT, ID, VALUE, DONE, EMPTY, END_OF_FILE
 	}
 }

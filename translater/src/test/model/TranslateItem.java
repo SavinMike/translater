@@ -12,18 +12,15 @@ import test.writer.CsvHistory;
  *
  * @author Savin Mikhail
  */
-public class TranslateItem<T extends Enum<T>> implements CSVObjectConverter<T>
+public class TranslateItem<T> implements CSVObjectConverter<T>
 {
 	public final String key;
 	private final Map<T, String> values = new HashMap<>();
-	private final Class<T> enumClass;
 
-	public TranslateItem(final String key, Class<T> enumClass)
+	public TranslateItem(final String key)
 	{
 		this.key = key;
-		this.enumClass = enumClass;
 	}
-
 
 	public void addColumn(T language, String value)
 	{

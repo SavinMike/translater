@@ -4,7 +4,7 @@ import java.util.EnumSet;
 import java.util.List;
 
 import test.model.PlatformVariants;
-import test.model.PlatformsPath;
+import test.path.PlatformsPath;
 import test.model.TranslateItem;
 import test.reader.CSVReader;
 import test.replace.TranslateUpdateReader;

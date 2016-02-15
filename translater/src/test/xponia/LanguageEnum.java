@@ -1,9 +1,10 @@
 package test.xponia;
 
+import org.apache.commons.io.FilenameUtils;
+
 import test.model.PlatformVariants;
-import test.model.PlatformsPath;
+import test.path.PlatformsPath;
 import test.replace.rules.LangageChaecker;
-import test.utils.FilenameUtils;
 
 public enum LanguageEnum implements PlatformsPath, LangageChaecker
 {
@@ -50,6 +51,12 @@ public enum LanguageEnum implements PlatformsPath, LangageChaecker
 		return platformVariants.name().toLowerCase() + "_" + FilenameUtils.getBaseName(path) + ".tsv";
 	}
 
+	@Override
+	public String getRootPath()
+	{
+		return null;
+	}
+
 	public String getPrefix()
 	{
 		return name().toLowerCase() + "/";
@@ -60,6 +67,8 @@ public enum LanguageEnum implements PlatformsPath, LangageChaecker
 	{
 		return this == EN;
 	}
+
+
 
 
 }

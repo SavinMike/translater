@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import test.reader.web.WebString;
-import test.xponia.LanguageEnum;
+import test.replace.rules.LangageChaecker;
 
 public class WebWriteConverter implements WriteConverter<List<WebString>>
 {
@@ -20,7 +20,7 @@ public class WebWriteConverter implements WriteConverter<List<WebString>>
 			{
 				continue;
 			}
-			newValues.put(webString.msgid, webString.msgstr.isEmpty() && LanguageEnum.EN.equals(params[0]) ? webString.msgid : webString.msgstr);
+			newValues.put(webString.msgid, webString.msgstr.isEmpty() && params[0] instanceof LangageChaecker && ((LangageChaecker)params[0]).isDefault() ? webString.msgid : webString.msgstr);
 		}
 
 		return newValues;

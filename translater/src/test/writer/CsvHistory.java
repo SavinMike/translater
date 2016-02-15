@@ -8,7 +8,7 @@ import java.util.Set;
  *
  * @author Savin Mikhail
  */
-public interface CsvHistory<E extends Enum<E>>
+public interface CsvHistory<E>
 {
 	Set<E> getEnumSet();
 

@@ -14,6 +14,10 @@ import java.util.Scanner;
  */
 public abstract class RuleReaderList<T> implements Reader<List<T>>
 {
+	public static final String[] ENCODINGS = {
+			"UTF-8", // Unicode UTF-8
+			"UTF-16" // Unicode UTF-16, big endian
+	};
 	public static final String END_OF_FILE = "${END_OF_FILE}";
 	private List<T> result = new ArrayList<>();
 
@@ -31,15 +35,25 @@ public abstract class RuleReaderList<T> implements Reader<List<T>>
 
 		try
 		{
-			Scanner scanner = new Scanner(new FileInputStream(file), "UTF-8");
-
-			while (scanner.hasNextLine())
+			//TODO HUCK TO READ IOS FILES WITH UTF-16 encoding
+			for (String charset : ENCODINGS)
 			{
-				String next = scanner.nextLine();
-				getReaderRules().checkStringLine(next);
+				Scanner scanner = new Scanner(new FileInputStream(file), charset);
 
-				if(!scanner.hasNextLine()){
-					getReaderRules().checkStringLine(END_OF_FILE);
+				while (scanner.hasNextLine())
+				{
+					String next = scanner.nextLine();
+					getReaderRules().checkStringLine(next);
+
+					if (!scanner.hasNextLine())
+					{
+						getReaderRules().checkStringLine(END_OF_FILE);
+					}
+				}
+
+				if (!result.isEmpty())
+				{
+					break;
 				}
 			}
 
@@ -54,7 +68,7 @@ public abstract class RuleReaderList<T> implements Reader<List<T>>
 
 	public void addToList(T item)
 	{
-		if(item!=null)
+		if (item != null)
 		{
 			result.add(item);
 		}

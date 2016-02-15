@@ -1,17 +1,19 @@
 package test;
 
+import org.apache.commons.io.FilenameUtils;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import test.model.PlatformVariants;
-import test.model.PlatformsPath;
 import test.model.TranslateItem;
 import test.model.converter.WriteConverter;
+import test.path.PlatformsPath;
 import test.reader.Reader;
 import test.writer.CSVWriter;
 import test.writer.CsvHistory;
@@ -22,15 +24,15 @@ import test.writer.CsvHistory;
  *
  * @author Savin Mikhail
  */
-public class TranslaterToCsv<E extends Enum<E> & PlatformsPath, H extends CsvHistory<E>>
+public class TranslaterToCsv<E extends PlatformsPath>
 {
-	private final Class<E> mEClass;
+	private final List<E> mPlatformsPath;
 	private final String mBasePath;
-	private H mHistory;
+	private CsvHistory<E> mHistory;
 
-	public TranslaterToCsv(final Class<E> EClass, final String basePath)
+	public TranslaterToCsv(final List<E> platformsPath, final String basePath)
 	{
-		mEClass = EClass;
+		mPlatformsPath = platformsPath;
 		mBasePath = basePath;
 	}
 
@@ -38,7 +40,7 @@ public class TranslaterToCsv<E extends Enum<E> & PlatformsPath, H extends CsvHis
 	{
 		Map<String, List<TranslateItem<E>>> result = new HashMap<>();
 
-		for (E languageEnum : mEClass.getEnumConstants())
+		for (E languageEnum : mPlatformsPath)
 		{
 			if (mHistory != null && !mHistory.contains(languageEnum))
 			{
@@ -50,41 +52,45 @@ public class TranslaterToCsv<E extends Enum<E> & PlatformsPath, H extends CsvHis
 			{
 				String filename = languageEnum.getFileNames(platformVariants)[counter];
 				List<T> languageValue = new ArrayList<>();
-				T read = reader.readFile(mBasePath + platformVariants.basePath + path);
-				if (read == null)
+				String file = languageEnum.getRootPath() + path;
+				if (new File(file).exists())
 				{
-					continue;
+					T read = reader.readFile(file);
+					if (read == null)
+					{
+						continue;
+					}
+
+					languageValue.addAll(Collections.singletonList(read));
+
+					Map<String, String> newValues = new LinkedHashMap<>();
+
+					for (T item : languageValue)
+					{
+						newValues.putAll(writeConverter.convert(item, languageEnum));
+					}
+
+					List<TranslateItem<E>> pathResult;
+					if (!result.containsKey(filename))
+					{
+						pathResult = new ArrayList<>();
+						result.put(filename, pathResult);
+					}
+					else
+					{
+						pathResult = result.get(filename);
+					}
+
+
+					addTranslation(languageEnum, newValues, pathResult);
 				}
-
-				languageValue.addAll(Collections.singletonList(read));
-
-				Map<String, String> newValues = new LinkedHashMap<>();
-
-				for (T item : languageValue)
-				{
-					newValues.putAll(writeConverter.convert(item, languageEnum));
-				}
-
-				List<TranslateItem<E>> pathResult;
-				if (!result.containsKey(filename))
-				{
-					pathResult = new ArrayList<>();
-					result.put(filename, pathResult);
-				}
-				else
-				{
-					pathResult = result.get(filename);
-				}
-
-
-				addTranslation(languageEnum, newValues, pathResult);
 				counter++;
 			}
 		}
 
 		for (Map.Entry<String, List<TranslateItem<E>>> entry : result.entrySet())
 		{
-			writeCsv(entry.getValue(), mBasePath + "csv/" + EnumSet.allOf(mEClass).iterator().next().getCsvName(platformVariants, entry.getKey()));
+			writeCsv(entry.getValue(), mBasePath + "csv/" + platformVariants.name() + "_" + FilenameUtils.getBaseName(entry.getKey()) + ".tsv");
 		}
 	}
 
@@ -119,14 +125,14 @@ public class TranslaterToCsv<E extends Enum<E> & PlatformsPath, H extends CsvHis
 
 			if (!added)
 			{
-				TranslateItem<E> item = new TranslateItem<>(entry.getKey(), mEClass);
+				TranslateItem<E> item = new TranslateItem<>(entry.getKey());
 				item.addColumn(language, entry.getValue());
 				result.add(item);
 			}
 		}
 	}
 
-	public void setHistory(final H history)
+	public void setHistory(final CsvHistory<E> history)
 	{
 		mHistory = history;
 	}

@@ -1,4 +1,6 @@
-package test.model;
+package test.path;
+
+import test.model.PlatformVariants;
 
 /**
  * Date: 10.02.2016
@@ -13,4 +15,8 @@ public interface PlatformsPath
 	String[] getFileNames(PlatformVariants platformVariants);
 
 	String getCsvName(PlatformVariants platformVariants, String path);
+
+	String getRootPath();
+
+	String name();
 }

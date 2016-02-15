@@ -6,7 +6,7 @@ package test.writer;
  *
  * @author Savin Mikhail
  */
-public interface CSVObjectConverter<E extends Enum<E>>
+public interface CSVObjectConverter<E>
 {
 	<H extends CsvHistory<E>> String convert(String delimiter, H history);
 }

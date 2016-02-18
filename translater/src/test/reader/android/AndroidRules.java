@@ -33,13 +33,14 @@ public class AndroidRules extends ReaderRules
 		if (Pattern.matches(".*<[ ]*string.*", next))
 		{
 			isMessage = true;
-			Pattern pattern = Pattern.compile(".*name[ ]*=[ ]*\\\"(.*)\\\".*");
+			Pattern pattern = Pattern.compile("name[ ]*=[ ]*\\\"([\\w\\d_]*)\\\"");
 			notifyIfContains(ActionType.ID, next, pattern);
 		}
 
 		if (next.isEmpty())
 		{
 			notifyListener(ActionType.EMPTY, next);
+			return;
 		}
 
 		if (Pattern.matches(".*<[ ]*/[ ]*string[ ]*>[ ]*", next))

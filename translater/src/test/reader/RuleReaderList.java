@@ -2,8 +2,11 @@ package test.reader;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -14,18 +17,21 @@ import java.util.Scanner;
  */
 public abstract class RuleReaderList<T> implements Reader<List<T>>
 {
-	public static final String[] ENCODINGS = {
-			"UTF-8", // Unicode UTF-8
-			"UTF-16" // Unicode UTF-16, big endian
-	};
 	public static final String END_OF_FILE = "${END_OF_FILE}";
 	private List<T> result = new ArrayList<>();
+	private Charset mCharset = Charset.forName("UTF-8");
 
-	private boolean mAddEmptyInEnd = true;
+	private Map<String, Charset> mCharsetMap = new HashMap<>();
 
-	public void setAddEmptyInEnd(final boolean addEmptyInEnd)
+	public void setCharsetMap(final Map<String, Charset> charsetMap)
 	{
-		mAddEmptyInEnd = addEmptyInEnd;
+		mCharsetMap = charsetMap;
+	}
+
+	public RuleReaderList setCharset(final Charset charset)
+	{
+		mCharset = charset;
+		return this;
 	}
 
 	@Override
@@ -35,25 +41,26 @@ public abstract class RuleReaderList<T> implements Reader<List<T>>
 
 		try
 		{
-			//TODO HUCK TO READ IOS FILES WITH UTF-16 encoding
-			for (String charset : ENCODINGS)
+			Charset charset = mCharset;
+			for (Map.Entry<String, Charset> entry : mCharsetMap.entrySet())
 			{
-				Scanner scanner = new Scanner(new FileInputStream(file), charset);
-
-				while (scanner.hasNextLine())
+				if (file.contains(entry.getKey()))
 				{
-					String next = scanner.nextLine();
-					getReaderRules().checkStringLine(next);
-
-					if (!scanner.hasNextLine())
-					{
-						getReaderRules().checkStringLine(END_OF_FILE);
-					}
-				}
-
-				if (!result.isEmpty())
-				{
+					charset = entry.getValue();
 					break;
+				}
+			}
+
+			Scanner scanner = new Scanner(new FileInputStream(file), charset.name());
+
+			while (scanner.hasNextLine())
+			{
+				String next = scanner.nextLine();
+				getReaderRules().checkStringLine(next);
+
+				if (!scanner.hasNextLine())
+				{
+					getReaderRules().checkStringLine(END_OF_FILE);
 				}
 			}
 

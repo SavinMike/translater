@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Savin Mikhail
  */
-public class IosLocationPathFinder implements LocationPathFinder
+public class IosLocationPathFinder extends BaseLocationPathFinder
 {
 	public static final String LPROJ = ".lproj";
 	private String mProjectPath;
@@ -31,8 +31,14 @@ public class IosLocationPathFinder implements LocationPathFinder
 			if (fileName.contains(LPROJ))
 			{
 				IosPlatformPath iosPlatformPath = new IosPlatformPath(fileName.substring(0, fileName.indexOf(LPROJ)));
-				iosPlatformPath.generateFileNames(localeDir.getAbsolutePath());
-				platformsPaths.add(iosPlatformPath);
+
+				iosPlatformPath.setExcludes(getExcludes());
+				iosPlatformPath.setIncludes(getIncludes());
+
+				if (iosPlatformPath.generateFileNames(localeDir.getAbsolutePath()))
+				{
+					platformsPaths.add(iosPlatformPath);
+				}
 			}
 		}
 		return platformsPaths;

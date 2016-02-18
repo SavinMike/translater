@@ -11,4 +11,11 @@ import java.util.List;
 public interface LocationPathFinder
 {
 	List<PlatformsPath> getLocations();
+
+	void setIncludes(final String... includes);
+
+	void setExcludes(final String... excludes);
+
+	void setDefault(String isDefault);
+
 }

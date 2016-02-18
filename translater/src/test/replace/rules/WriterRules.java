@@ -10,9 +10,9 @@ import test.model.TranslateItem;
  */
 public interface WriterRules
 {
-	<E extends Enum<E>> String updateString(TranslateItem<E> translateItem, E language, final String realString);
+	<E> String updateString(TranslateItem<E> translateItem, E language, final String realString);
 
-	<E extends Enum<E>> String updateId(TranslateItem<E> translateItem, E language);
+	<E> String updateId(TranslateItem<E> translateItem, E language);
 
 	String getComment(String commentString);
 }

@@ -12,14 +12,13 @@ import java.util.List;
  *
  * @author Savin Mikhail
  */
-public class AndroidLocationPathFinder implements LocationPathFinder
+public class AndroidLocationPathFinder extends BaseLocationPathFinder implements LocationPathFinder
 {
 	public static final String VALUES = "values";
 	public static final String RES = "res";
 	public static final String ANDROID_TEST = "androidTest";
 
 	private String mProjectPath;
-	private String[] mIncludes;
 
 	public AndroidLocationPathFinder(final String projectPath)
 	{
@@ -61,7 +60,7 @@ public class AndroidLocationPathFinder implements LocationPathFinder
 			String name;
 			if (fileName.equals(VALUES))
 			{
-				name = AndroidPlatformPath.DEFAULT;
+				name = getDefault();
 			}
 			else if (fileName.contains(VALUES))
 			{
@@ -86,23 +85,36 @@ public class AndroidLocationPathFinder implements LocationPathFinder
 			if (androidPlatformPath == null)
 			{
 				androidPlatformPath = new AndroidPlatformPath(name);
-				if (name.equals(AndroidPlatformPath.DEFAULT))
+				if (name.equals(getDefault()))
 				{
 					androidPlatformPath.setDefault(true);
 				}
 
-				androidPlatformPath.setIncludes(mIncludes);
+				androidPlatformPath.setIncludes(getIncludes());
+				androidPlatformPath.setExcludes(getExcludes());
+
 				if (androidPlatformPath.generateFileNames(resFolder.getAbsolutePath()))
 				{
 					platformsPaths.add(androidPlatformPath);
 				}
-			} else {
-				androidPlatformPath.generateFileNames(resFolder.getAbsolutePath());
+				androidPlatformPath.setProjectPath(mProjectPath + "/src/");
+				androidPlatformPath.addFlavors(flavors);
 			}
-
-			androidPlatformPath.setProjectPath(mProjectPath + "/src/");
-			androidPlatformPath.addFlavors(flavors);
+			else
+			{
+				if (androidPlatformPath.generateFileNames(resFolder.getAbsolutePath()))
+				{
+					androidPlatformPath.setProjectPath(mProjectPath + "/src/");
+					androidPlatformPath.addFlavors(flavors);
+				}
+			}
 		}
+	}
+
+	@Override
+	protected String getDefault()
+	{
+		return super.getDefault() == null ? AndroidPlatformPath.DEFAULT : super.getDefault();
 	}
 
 	private boolean isGradle(File localeDir)
@@ -118,8 +130,4 @@ public class AndroidLocationPathFinder implements LocationPathFinder
 		return false;
 	}
 
-	public void setIncludes(final String... includes)
-	{
-		this.mIncludes = includes;
-	}
 }

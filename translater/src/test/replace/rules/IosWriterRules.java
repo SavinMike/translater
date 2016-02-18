@@ -13,21 +13,16 @@ public class IosWriterRules implements WriterRules
 {
 
 	@Override
-	public <E extends Enum<E>> String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
+	public <E> String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
 	{
 		String value = translateItem.getValue(language);
-		if (value.isEmpty())
-		{
-			return value;
-		}
-
 		value = value.replaceAll(ReaderRules.QUOT, "\\\\\"");
 
 		return String.format("\"%s\" = \"%s\";", translateItem.key, value);
 	}
 
 	@Override
-	public <E extends Enum<E>> String updateId(final TranslateItem<E> translateItem, final E language)
+	public <E> String updateId(final TranslateItem<E> translateItem, final E language)
 	{
 		return null;
 	}

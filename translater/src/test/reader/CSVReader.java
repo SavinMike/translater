@@ -39,15 +39,14 @@ public abstract class CSVReader<T, H> implements Reader<List<T>>
 			{
 				List<String> stringsList = new ArrayList<>();
 				String copyLine = line;
-				while (copyLine.contains(mDelimiter)){
+				while (copyLine.contains(mDelimiter))
+				{
 					int endIndex = copyLine.indexOf(mDelimiter);
 					stringsList.add(copyLine.substring(0, endIndex));
-					copyLine = copyLine.substring(endIndex+1);
+					copyLine = copyLine.substring(endIndex + 1);
 				}
 
-				if(!copyLine.isEmpty()){
-					stringsList.add(copyLine);
-				}
+				stringsList.add(copyLine);
 				String[] strings = stringsList.toArray(new String[stringsList.size()]);
 				if (firstLine)
 				{

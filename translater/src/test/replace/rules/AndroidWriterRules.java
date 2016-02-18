@@ -17,7 +17,7 @@ public class AndroidWriterRules implements WriterRules
 
 
 	@Override
-	public <E extends Enum<E>> String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
+	public <E > String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
 	{
 		if (realString == null)
 		{
@@ -49,7 +49,7 @@ public class AndroidWriterRules implements WriterRules
 	}
 
 	@Override
-	public <E extends Enum<E>> String updateId(final TranslateItem<E> translateItem, final E language)
+	public <E > String updateId(final TranslateItem<E> translateItem, final E language)
 	{
 		return null;
 	}

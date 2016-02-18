@@ -43,7 +43,7 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 				mUpdateReader.addToList(updatedString);
 				break;
 			case EMPTY:
-				mUpdateReader.addToList("\n");
+				mUpdateReader.addToList("");
 				break;
 			case END_OF_FILE:
 				mUpdateReader.addNewTranslate(next);

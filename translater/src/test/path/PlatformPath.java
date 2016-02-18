@@ -27,12 +27,11 @@ public abstract class PlatformPath implements PlatformsPath
 	private List<String> mExcludes = new ArrayList<>();
 	private List<String> mIncludes = new ArrayList<>();
 
-	public PlatformPath(final String localeName, final PlatformVariants platformVariants)
+	public PlatformPath(final String localeName, PlatformVariants platformVariants)
 	{
 		this.localeName = localeName;
 		mPlatformVariants = platformVariants;
 	}
-
 
 	public boolean isDefault()
 	{
@@ -46,7 +45,7 @@ public abstract class PlatformPath implements PlatformsPath
 	}
 
 	@Override
-	public String[] getPaths(final PlatformVariants platformVariants)
+	public String[] getPaths()
 	{
 
 		String[] result = fileNames.toArray(new String[fileNames.size()]);
@@ -61,15 +60,10 @@ public abstract class PlatformPath implements PlatformsPath
 
 	protected abstract String getPrefix();
 
-	@Override
-	public String getCsvName(final PlatformVariants platformVariants, final String path)
-	{
-		return mPlatformVariants.name().toLowerCase() + "_" + FilenameUtils.getBaseName(path) + ".tsv";
-	}
-
 	public boolean generateFileNames(String dir)
 	{
-		if(projectPath == null)
+		boolean isAdded = false;
+		if (projectPath == null)
 		{
 			projectPath = dir;
 		}
@@ -79,11 +73,12 @@ public abstract class PlatformPath implements PlatformsPath
 		{
 			if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(getStringExtension()) && !mExcludes.contains(file.getName()) && (mIncludes.isEmpty() || mIncludes.contains(file.getName())))
 			{
+				isAdded = true;
 				fileNames.add(file.getName());
 			}
 		}
 
-		return !fileNames.isEmpty();
+		return isAdded;
 	}
 
 	public void setProjectPath(final String projectPath)
@@ -94,7 +89,7 @@ public abstract class PlatformPath implements PlatformsPath
 	protected abstract String getStringExtension();
 
 	@Override
-	public String[] getFileNames(final PlatformVariants platformVariants)
+	public String[] getFileNames()
 	{
 		return fileNames.toArray(new String[fileNames.size()]);
 	}
@@ -125,5 +120,36 @@ public abstract class PlatformPath implements PlatformsPath
 		{
 			mIncludes = Arrays.asList(includes);
 		}
+	}
+
+	@Override
+	public boolean equals(final Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		final PlatformPath that = (PlatformPath) o;
+
+		return !(localeName != null ? !localeName.equals(that.localeName) : that.localeName != null) && !(projectPath != null ? !projectPath.equals(that.projectPath) : that.projectPath != null);
+
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = localeName != null ? localeName.hashCode() : 0;
+		result = 31 * result + (projectPath != null ? projectPath.hashCode() : 0);
+		return result;
+	}
+
+	public PlatformVariants getPlatformVariants()
+	{
+		return mPlatformVariants;
 	}
 }

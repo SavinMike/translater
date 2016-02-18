@@ -1,7 +1,5 @@
 package test;
 
-import org.apache.commons.io.FilenameUtils;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,6 +11,7 @@ import java.util.Map;
 import test.model.PlatformVariants;
 import test.model.TranslateItem;
 import test.model.converter.WriteConverter;
+import test.path.PathConvector;
 import test.path.PlatformsPath;
 import test.reader.Reader;
 import test.writer.CSVWriter;
@@ -40,19 +39,19 @@ public class TranslaterToCsv<E extends PlatformsPath>
 	{
 		Map<String, List<TranslateItem<E>>> result = new HashMap<>();
 
-		for (E languageEnum : mPlatformsPath)
+		for (E platformPath : mPlatformsPath)
 		{
-			if (mHistory != null && !mHistory.contains(languageEnum))
+			if (mHistory != null && !mHistory.contains(platformPath))
 			{
 				continue;
 			}
 
 			int counter = 0;
-			for (String path : languageEnum.getPaths(platformVariants))
+			for (String path : platformPath.getPaths())
 			{
-				String filename = languageEnum.getFileNames(platformVariants)[counter];
+				String filename = platformPath.getFileNames()[counter];
+				String file = platformPath.getRootPath() + path;
 				List<T> languageValue = new ArrayList<>();
-				String file = languageEnum.getRootPath() + path;
 				if (new File(file).exists())
 				{
 					T read = reader.readFile(file);
@@ -67,7 +66,7 @@ public class TranslaterToCsv<E extends PlatformsPath>
 
 					for (T item : languageValue)
 					{
-						newValues.putAll(writeConverter.convert(item, languageEnum));
+						newValues.putAll(writeConverter.convert(item, platformPath));
 					}
 
 					List<TranslateItem<E>> pathResult;
@@ -82,7 +81,7 @@ public class TranslaterToCsv<E extends PlatformsPath>
 					}
 
 
-					addTranslation(languageEnum, newValues, pathResult);
+					addTranslation(platformPath, newValues, pathResult);
 				}
 				counter++;
 			}
@@ -90,7 +89,7 @@ public class TranslaterToCsv<E extends PlatformsPath>
 
 		for (Map.Entry<String, List<TranslateItem<E>>> entry : result.entrySet())
 		{
-			writeCsv(entry.getValue(), mBasePath + "csv/" + platformVariants.name() + "_" + FilenameUtils.getBaseName(entry.getKey()) + ".tsv");
+			writeCsv(entry.getValue(), PathConvector.getCsvPath(mBasePath, platformVariants, entry.getKey()));
 		}
 	}
 

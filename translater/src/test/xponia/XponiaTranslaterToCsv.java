@@ -1,21 +1,23 @@
 package test.xponia;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import test.PropertiesReader;
 import test.TranslaterToCsv;
+import test.model.Config;
 import test.model.PlatformVariants;
 import test.model.converter.AndroidWriteConverter;
 import test.model.converter.IosWriteConverter;
 import test.model.converter.WebWriteConverter;
-import test.path.AndroidLocationPathFinder;
-import test.path.LocationPathFinder;
-import test.path.LocationPathFinderFactory;
+import test.path.PathHelper;
 import test.path.PlatformsPath;
+import test.reader.RuleReaderList;
 import test.reader.XMLReader;
 import test.reader.ios.IosResourcesReader;
+import test.reader.ios.IosString;
 import test.reader.web.WebPoReader;
+import test.reader.web.WebString;
 import test.writer.LocationHistory;
 
 /**
@@ -29,35 +31,40 @@ public class XponiaTranslaterToCsv
 
 	public static void main(String[] args)
 	{
-		Map<PlatformVariants, String> map = new HashMap<>();
-		map.put(PlatformVariants.WEB, "/home/arello/Work/Xponia/Web/");
-		map.put(PlatformVariants.ANDROID, "/home/arello/Work/Xponia/android/Xponia/app/");
-		map.put(PlatformVariants.IOS, "/home/arello/Work/Xponia/ios/Xponia/");
+		Config config = new PropertiesReader().readFile("config.properties");
 
-		for(Map.Entry<PlatformVariants, String> entry: map.entrySet())
+		if (config == null)
 		{
-			LocationPathFinder locationPathFinder = LocationPathFinderFactory.create(entry.getKey(), entry.getValue());
+			return;
+		}
 
-			if(locationPathFinder instanceof AndroidLocationPathFinder)
-			{
-				((AndroidLocationPathFinder)locationPathFinder).setIncludes("strings.xml", "service.xml");
-			}
+		PathHelper pathHelper = new PathHelper(config);
 
-			List<PlatformsPath> locations = locationPathFinder.getLocations();
+		Map<PlatformVariants, List<PlatformsPath>> locations = pathHelper.getLocations();
 
-			TranslaterToCsv<PlatformsPath> translaterToCsv = new TranslaterToCsv<>(locations, "Xponia/");
-			translaterToCsv.setHistory(new LocationHistory(locations));
+		for (Map.Entry<PlatformVariants, List<PlatformsPath>> entry : locations.entrySet())
+		{
+			TranslaterToCsv<PlatformsPath> translaterToCsv = new TranslaterToCsv<>(entry.getValue(), config.getCsvPath());
+			translaterToCsv.setHistory(new LocationHistory(entry.getValue()));
 			switch (entry.getKey())
 			{
 				case ANDROID:
 					translaterToCsv.readAndWriteToCsv(new XMLReader(), new AndroidWriteConverter(), entry.getKey());
 					break;
 				case IOS:
-					translaterToCsv.readAndWriteToCsv(new IosResourcesReader(), new IosWriteConverter(), entry.getKey());
-					break;
+				{
+					RuleReaderList<IosString> reader = new IosResourcesReader();
+					reader.setCharsetMap(config.getFileCharset());
+					translaterToCsv.readAndWriteToCsv(reader, new IosWriteConverter(), entry.getKey());
+				}
+				break;
 				case WEB:
-					translaterToCsv.readAndWriteToCsv(new WebPoReader(), new WebWriteConverter(), entry.getKey());
-					break;
+				{
+					RuleReaderList<WebString> reader = new WebPoReader();
+					reader.setCharsetMap(config.getFileCharset());
+					translaterToCsv.readAndWriteToCsv(reader, new WebWriteConverter(), entry.getKey());
+				}
+				break;
 			}
 		}
 	}

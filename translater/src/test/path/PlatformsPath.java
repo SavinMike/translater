@@ -1,7 +1,5 @@
 package test.path;
 
-import test.model.PlatformVariants;
-
 /**
  * Date: 10.02.2016
  * Time: 19:02
@@ -10,13 +8,16 @@ import test.model.PlatformVariants;
  */
 public interface PlatformsPath
 {
-	String[] getPaths(PlatformVariants platformVariants);
+	String[] getPaths();
 
-	String[] getFileNames(PlatformVariants platformVariants);
-
-	String getCsvName(PlatformVariants platformVariants, String path);
+	String[] getFileNames();
 
 	String getRootPath();
 
 	String name();
+
+	void setIncludes(final String... includes);
+
+	void setExcludes(final String... excludes);
+
 }

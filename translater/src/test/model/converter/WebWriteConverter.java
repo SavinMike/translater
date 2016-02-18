@@ -4,8 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import test.path.PlatformPath;
 import test.reader.web.WebString;
-import test.replace.rules.LangageChaecker;
 
 public class WebWriteConverter implements WriteConverter<List<WebString>>
 {
@@ -20,7 +20,7 @@ public class WebWriteConverter implements WriteConverter<List<WebString>>
 			{
 				continue;
 			}
-			newValues.put(webString.msgid, webString.msgstr.isEmpty() && params[0] instanceof LangageChaecker && ((LangageChaecker)params[0]).isDefault() ? webString.msgid : webString.msgstr);
+			newValues.put(webString.msgid, webString.msgstr.isEmpty() && params[0] instanceof PlatformPath && ((PlatformPath)params[0]).isDefault() ? webString.msgid : webString.msgstr);
 		}
 
 		return newValues;

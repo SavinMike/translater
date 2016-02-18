@@ -62,7 +62,7 @@ public class WebWriterActionListener implements ReaderRules.RulesActionsListener
 			}
 			else
 			{
-				mUpdateReader.addToList("\n");
+				mUpdateReader.addToList("");
 			}
 		}
 	}

@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Savin Mikhail
  */
-public class WebLocationPathFinder implements LocationPathFinder
+public class WebLocationPathFinder extends BaseLocationPathFinder
 {
 	public static final String LOCALE_PLACE = "src/locale/";
 	private String mProjectPath;
@@ -26,10 +26,18 @@ public class WebLocationPathFinder implements LocationPathFinder
 		File localeDir = new File(mProjectPath + LOCALE_PLACE);
 		List<PlatformsPath> platformsPaths = new ArrayList<>();
 
-		for(String fileName: localeDir.list()){
+		for (String fileName : localeDir.list())
+		{
 			WebPlatformPath webPlatformPath = new WebPlatformPath(fileName);
-			webPlatformPath.generateFileNames(localeDir.getAbsolutePath());
-			platformsPaths.add(webPlatformPath);
+
+			webPlatformPath.setDefault(fileName.equals(getDefault()));
+			webPlatformPath.setExcludes(getExcludes());
+			webPlatformPath.setIncludes(getIncludes());
+
+			if (webPlatformPath.generateFileNames(localeDir.getAbsolutePath()))
+			{
+				platformsPaths.add(webPlatformPath);
+			}
 		}
 		return platformsPaths;
 	}

@@ -19,11 +19,6 @@ public class AndroidPlatformPath extends PlatformPath
 
 	private List<String> flavorsNames = new ArrayList<>();
 
-	public AndroidPlatformPath()
-	{
-		super(DEFAULT, PlatformVariants.ANDROID);
-	}
-
 	public AndroidPlatformPath(final String localeName)
 	{
 		super(localeName, PlatformVariants.ANDROID);
@@ -32,7 +27,7 @@ public class AndroidPlatformPath extends PlatformPath
 	@Override
 	protected String getPrefix()
 	{
-		if (name().equals(DEFAULT))
+		if (isDefault())
 		{
 			return "/" + AndroidLocationPathFinder.VALUES + "/";
 		}
@@ -47,9 +42,9 @@ public class AndroidPlatformPath extends PlatformPath
 	}
 
 	@Override
-	public String[] getFileNames(final PlatformVariants platformVariants)
+	public String[] getFileNames()
 	{
-		String[] result = new String[getPaths(platformVariants).length];
+		String[] result = new String[getPaths().length];
 		int counter = 0;
 		for (String fileName : fileNames)
 		{
@@ -63,7 +58,7 @@ public class AndroidPlatformPath extends PlatformPath
 	}
 
 	@Override
-	public String[] getPaths(final PlatformVariants platformVariants)
+	public String[] getPaths()
 	{
 
 		List<String> result = new ArrayList<>();

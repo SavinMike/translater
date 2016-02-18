@@ -1,6 +1,7 @@
 package test.replace.rules;
 
 import test.model.TranslateItem;
+import test.path.PlatformPath;
 import test.reader.ReaderRules;
 import test.reader.web.WebString;
 
@@ -16,14 +17,14 @@ public class WebWriterRules implements WriterRules
 	public static final int MAX_LENGTH = 80;
 
 	@Override
-	public <E extends Enum<E>> String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
+	public <E> String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(WebString.TRANSLATE).append(" \"");
 
 		String value = translateItem.getValue(language);
 
-		if (language instanceof LangageChaecker && ((LangageChaecker) language).isDefault() && value.equals(translateItem.key))
+		if (language instanceof PlatformPath && ((PlatformPath) language).isDefault() && value.equals(translateItem.key))
 		{
 			return stringBuilder.append("\"").toString();
 		}
@@ -74,7 +75,7 @@ public class WebWriterRules implements WriterRules
 	}
 
 	@Override
-	public <E extends Enum<E>> String updateId(final TranslateItem<E> translateItem, final E language)
+	public <E> String updateId(final TranslateItem<E> translateItem, final E language)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(WebString.ID).append(" \"");

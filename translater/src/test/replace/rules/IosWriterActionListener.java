@@ -31,7 +31,7 @@ public class IosWriterActionListener implements ReaderRules.RulesActionsListener
 				mUpdateReader.addToList(str);
 				break;
 			case EMPTY:
-				mUpdateReader.addToList("\n");
+				mUpdateReader.addToList("");
 				break;
 			case END_OF_FILE:
 				mUpdateReader.addNewTranslate(next);

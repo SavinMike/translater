@@ -14,7 +14,7 @@ import test.replace.rules.WriterRules;
  *
  * @author Savin Mikhail
  */
-public class TranslateUpdateReader<T extends Enum<T>> extends UpdateReader<List<TranslateItem<T>>>
+public class TranslateUpdateReader<T> extends UpdateReader<List<TranslateItem<T>>>
 {
 	public static final String DEFAULT_STRING = "    <string name=\"%1$s\"></string>";
 	private WriterRules mWriterRules;
@@ -28,7 +28,6 @@ public class TranslateUpdateReader<T extends Enum<T>> extends UpdateReader<List<
 
 		mWriterRules = RulesFactory.getWriteRules(platformVariants);
 		this.language = language;
-		setAddEmptyInEnd(false);
 	}
 
 	@Override
@@ -52,9 +51,8 @@ public class TranslateUpdateReader<T extends Enum<T>> extends UpdateReader<List<
 		List<TranslateItem<T>> copy = new ArrayList<>(getUpdate());
 		copy.removeAll(mTranlatedList);
 		boolean isFirst = true;
-		for (int i = 0; i < copy.size(); i++)
+		for (TranslateItem<T> item : copy)
 		{
-			TranslateItem<T> item = copy.get(i);
 			if (!item.contains(language))
 			{
 				continue;
@@ -64,9 +62,9 @@ public class TranslateUpdateReader<T extends Enum<T>> extends UpdateReader<List<
 			{
 				if (isFirst)
 				{
-					addToList("\n");
+					addToList("");
 					addToList(mWriterRules.getComment("Added translation"));
-					addToList("\n");
+					addToList("");
 					isFirst = false;
 				}
 
@@ -78,10 +76,6 @@ public class TranslateUpdateReader<T extends Enum<T>> extends UpdateReader<List<
 
 				String updateString = mWriterRules.updateString(item, language, String.format(DEFAULT_STRING, item.key));
 				addToList(updateString);
-				if (i != copy.size() - 1)
-				{
-					addToList("\n");
-				}
 			}
 		}
 

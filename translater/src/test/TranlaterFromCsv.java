@@ -2,18 +2,19 @@ package test;
 
 import java.io.File;
 import java.nio.charset.Charset;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import test.creator.CreatorFactory;
+import test.creator.CreatorLocalizeFile;
+import test.model.Config;
 import test.model.PlatformVariants;
 import test.model.TranslateItem;
-import test.path.PathConvector;
 import test.path.PlatformsPath;
-import test.reader.CSVReader;
 import test.replace.TranslateUpdateReader;
 import test.replace.ValueChanger;
-import test.writer.CsvHistory;
 
 /**
  * Date: 10.02.2016
@@ -21,11 +22,10 @@ import test.writer.CsvHistory;
  *
  * @author Savin Mikhail
  */
-public class TranlaterFromCsv<E extends PlatformsPath, H extends CsvHistory<E>>
+public class TranlaterFromCsv<E extends PlatformsPath>
 {
 
-	private final String mBasePath;
-	private final List<E> mPlatformsPath;
+	private final Collection<E> mPlatformsPath;
 
 	private Map<String, Charset> mCharsetMap = new HashMap<>();
 
@@ -34,36 +34,57 @@ public class TranlaterFromCsv<E extends PlatformsPath, H extends CsvHistory<E>>
 		mCharsetMap.putAll(charsetMap);
 	}
 
-	public TranlaterFromCsv(final String basePath, final List<E> platformsPath)
+	public TranlaterFromCsv(final Collection<E> platformsPath)
 	{
-		mBasePath = basePath;
 		mPlatformsPath = platformsPath;
 	}
 
-	public void readFromCsv(CSVReader<TranslateItem<E>, H> csvReader, PlatformVariants platformVariants)
+	public void updateTranslation(List<TranslateItem<E>> translateItems, PlatformVariants platformVariants, Config config)
 	{
 		for (E platformPath : mPlatformsPath)
 		{
+			boolean hasValue = false;
+			for (TranslateItem<E> translateItem : translateItems)
+			{
+				String value = translateItem.getValue(platformPath);
+				if (value != null && !value.isEmpty())
+				{
+					hasValue = true;
+					break;
+				}
+			}
+
+			if (!hasValue)
+			{
+				break;
+			}
+
 			int counter = 0;
 			for (String path : platformPath.getPaths())
 			{
 				String filename = platformPath.getFileNames()[counter];
-				String file = platformPath.getRootPath() + path;
+				String filePath = platformPath.getRootPath() + path;
 
-				String csvPath = PathConvector.getCsvPath(mBasePath, platformVariants, filename);
-				if (new File(file).exists() && new File(csvPath).exists())
+				ValueChanger<List<TranslateItem<E>>> listValueChanger = new ValueChanger<>(new TranslateUpdateReader<>(platformVariants, platformPath));
+
+				Charset charset = Charset.defaultCharset();
+				if (mCharsetMap.containsKey(filename))
 				{
-					List<TranslateItem<E>> translateItems = csvReader.readFile(csvPath);
-					ValueChanger<List<TranslateItem<E>>> listValueChanger = new ValueChanger<>(new TranslateUpdateReader<>(platformVariants, platformPath));
-
-					if (mCharsetMap.containsKey(filename))
-					{
-						listValueChanger.setCharset(mCharsetMap.get(filename));
-					}
-
-					listValueChanger.updateValue(file, translateItems);
+					charset = mCharsetMap.get(filename);
+					listValueChanger.setCharset(charset);
 				}
+				File file = new File(filePath);
 				counter++;
+				CreatorLocalizeFile creator = CreatorFactory.getCreator(platformVariants, config);
+				if (!file.exists())
+				{
+					if (creator == null || !creator.createFile(file, charset.name()))
+					{
+						continue;
+					}
+				}
+
+				listValueChanger.updateValue(filePath, translateItems);
 			}
 		}
 

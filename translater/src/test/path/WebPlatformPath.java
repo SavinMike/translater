@@ -11,22 +11,14 @@ import test.model.PlatformVariants;
 public class WebPlatformPath extends PlatformPath
 {
 
-	public static final String PO = "po";
-
 	public WebPlatformPath(final String localeName)
 	{
 		super(localeName, PlatformVariants.WEB);
 	}
 
 	@Override
-	protected String getPrefix()
+	public String getPrefix()
 	{
 		return "/" + name() + "/LC_MESSAGES/";
-	}
-
-	@Override
-	protected String getStringExtension()
-	{
-		return PO;
 	}
 }

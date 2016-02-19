@@ -117,7 +117,7 @@ public class AndroidLocationPathFinder extends BaseLocationPathFinder implements
 		return super.getDefault() == null ? AndroidPlatformPath.DEFAULT : super.getDefault();
 	}
 
-	private boolean isGradle(File localeDir)
+	public static boolean isGradle(File localeDir)
 	{
 		for (String filename : localeDir.list())
 		{

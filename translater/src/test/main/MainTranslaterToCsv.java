@@ -1,4 +1,4 @@
-package test.xponia;
+package test.main;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,8 @@ import test.model.converter.WebWriteConverter;
 import test.path.PathHelper;
 import test.path.PlatformsPath;
 import test.reader.RuleReaderList;
-import test.reader.XMLReader;
+import test.reader.android.AndroidResourcesReader;
+import test.reader.android.AndroidString;
 import test.reader.ios.IosResourcesReader;
 import test.reader.ios.IosString;
 import test.reader.web.WebPoReader;
@@ -26,12 +27,12 @@ import test.writer.LocationHistory;
  *
  * @author Savin Mikhail
  */
-public class XponiaTranslaterToCsv
+public class MainTranslaterToCsv
 {
 
 	public static void main(String[] args)
 	{
-		Config config = new PropertiesReader().readFile("config.properties");
+		Config config = new PropertiesReader().readFile(args[0]);
 
 		if (config == null)
 		{
@@ -49,7 +50,11 @@ public class XponiaTranslaterToCsv
 			switch (entry.getKey())
 			{
 				case ANDROID:
-					translaterToCsv.readAndWriteToCsv(new XMLReader(), new AndroidWriteConverter(), entry.getKey());
+				{
+					RuleReaderList<AndroidString> reader = new AndroidResourcesReader();
+					reader.setCharsetMap(config.getFileCharset());
+					translaterToCsv.readAndWriteToCsv(reader, new AndroidWriteConverter(), entry.getKey());
+				}
 					break;
 				case IOS:
 				{

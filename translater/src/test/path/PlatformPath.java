@@ -60,6 +60,11 @@ public abstract class PlatformPath implements PlatformsPath
 
 	protected abstract String getPrefix();
 
+	public void addFileNames(String filename)
+	{
+		fileNames.add(filename);
+	}
+
 	public boolean generateFileNames(String dir)
 	{
 		boolean isAdded = false;
@@ -71,7 +76,7 @@ public abstract class PlatformPath implements PlatformsPath
 
 		for (File file : localeDir)
 		{
-			if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(getStringExtension()) && !mExcludes.contains(file.getName()) && (mIncludes.isEmpty() || mIncludes.contains(file.getName())))
+			if (FilenameUtils.getExtension(file.getAbsolutePath()).equals(mPlatformVariants.getExtension()) && !mExcludes.contains(file.getName()) && (mIncludes.isEmpty() || mIncludes.contains(file.getName())))
 			{
 				isAdded = true;
 				fileNames.add(file.getName());
@@ -85,8 +90,6 @@ public abstract class PlatformPath implements PlatformsPath
 	{
 		this.projectPath = projectPath;
 	}
-
-	protected abstract String getStringExtension();
 
 	@Override
 	public String[] getFileNames()

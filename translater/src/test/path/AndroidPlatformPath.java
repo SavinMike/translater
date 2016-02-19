@@ -14,8 +14,9 @@ import test.model.PlatformVariants;
 public class AndroidPlatformPath extends PlatformPath
 {
 
-	public static final String XML = "xml";
 	public static final String DEFAULT = "default";
+	public static final String START_FLAVORS = "#flavors_";
+	public static final String END_FLAVORS = "_flavors#_";
 
 	private List<String> flavorsNames = new ArrayList<>();
 
@@ -36,12 +37,6 @@ public class AndroidPlatformPath extends PlatformPath
 	}
 
 	@Override
-	protected String getStringExtension()
-	{
-		return XML;
-	}
-
-	@Override
 	public String[] getFileNames()
 	{
 		String[] result = new String[getPaths().length];
@@ -50,7 +45,7 @@ public class AndroidPlatformPath extends PlatformPath
 		{
 			for (String flavor : flavorsNames)
 			{
-				result[counter] = flavor + "_" + fileName;
+				result[counter] = START_FLAVORS + flavor + END_FLAVORS + fileName;
 				counter++;
 			}
 		}
@@ -78,5 +73,4 @@ public class AndroidPlatformPath extends PlatformPath
 	{
 		flavorsNames.add(flavors);
 	}
-
 }

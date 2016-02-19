@@ -81,7 +81,7 @@ public class PathHelper
 
 	public File getCsvFile()
 	{
-		File csvDir = new File(mCsvPath);
+		File csvDir = new File(mCsvPath + "/csv/");
 		if (!csvDir.exists())
 		{
 			throw new IllegalArgumentException("Incorrect path for csv folder!");

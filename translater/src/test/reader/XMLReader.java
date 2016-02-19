@@ -4,8 +4,11 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.Scanner;
 
 import test.model.Resources;
+import test.reader.android.AndroidRules;
 
 
 /**

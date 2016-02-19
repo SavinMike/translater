@@ -11,7 +11,6 @@ import test.model.PlatformVariants;
 public class IosPlatformPath extends PlatformPath
 {
 
-	public static final String STRINGS = "strings";
 
 	public IosPlatformPath(final String localeName)
 	{
@@ -22,11 +21,5 @@ public class IosPlatformPath extends PlatformPath
 	protected String getPrefix()
 	{
 		return "/" + name() + IosLocationPathFinder.LPROJ + "/";
-	}
-
-	@Override
-	protected String getStringExtension()
-	{
-		return STRINGS;
 	}
 }

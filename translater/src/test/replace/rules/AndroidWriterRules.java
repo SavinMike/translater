@@ -57,6 +57,6 @@ public class AndroidWriterRules implements WriterRules
 	@Override
 	public String getComment(final String commentString)
 	{
-		return String.format("<!--%s-->", commentString);
+		return String.format("\t<!--%s-->", commentString);
 	}
 }

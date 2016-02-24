@@ -56,7 +56,7 @@ public class TranlaterFromCsv<E extends PlatformsPath>
 
 			if (!hasValue)
 			{
-				break;
+				continue;
 			}
 
 			int counter = 0;

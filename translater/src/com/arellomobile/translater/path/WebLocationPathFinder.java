@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class WebLocationPathFinder extends BaseLocationPathFinder
 {
-	public static final String LOCALE_PLACE = "src/locale/";
+	public static final String LOCALE_PLACE = "/src/locale/";
 	private String mProjectPath;
 
 	public WebLocationPathFinder(final String projectPath)

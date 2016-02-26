@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class TranslateUpdateReader<T> extends UpdateReader<List<TranslateItem<T>>>
 {
-	public static final String DEFAULT_STRING = "    <string name=\"%1$s\"></string>";
+	public static final String DEFAULT_STRING = "\t<string name=\"%1$s\"></string>";
 	private WriterRules mWriterRules;
 
 	private List<TranslateItem<T>> mTranlatedList = new ArrayList<>();

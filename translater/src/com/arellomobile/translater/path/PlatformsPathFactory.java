@@ -21,7 +21,7 @@ public class PlatformsPathFactory
 				AndroidPlatformPath androidPlatformPath = new AndroidPlatformPath(locationName);
 				androidPlatformPath.addFlavors(((AndroidCsvFilenameInfo) csvFilenameInfo).flavors);
 				platformsPath = androidPlatformPath;
-				platformsPath.setProjectPath(config.getPathMap().get(csvFilenameInfo.platformVariants) + "src/");
+				platformsPath.setProjectPath(config.getPathMap().get(csvFilenameInfo.platformVariants) + "/src/");
 				break;
 			case IOS:
 				platformsPath = new IosPlatformPath(locationName);

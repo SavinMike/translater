@@ -1,6 +1,6 @@
 ## Platform variants
 
--	WEB
+-	WEB (for .po files)
 -   ANDROID
 -   IOS
 

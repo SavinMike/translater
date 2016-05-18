@@ -110,7 +110,11 @@ public class Main
 				if (string.startsWith("\""))
 				{
 					String s = string.replaceFirst("\"", "");
-					return s.substring(0, s.lastIndexOf("\"")).replaceAll("\"\"", ReaderRules.QUOT);
+					int endIndex = s.lastIndexOf("\"");
+					if(endIndex!=-1)
+					{
+						return s.substring(0, endIndex).replaceAll("\"\"", ReaderRules.QUOT);
+					}
 				}
 
 				return string;

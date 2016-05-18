@@ -55,7 +55,12 @@ public class AndroidLocationPathFinder extends BaseLocationPathFinder implements
 
 	private void addFromRes(final File resFolder, final List<PlatformsPath> platformsPaths, String flavors)
 	{
-		for (String fileName : resFolder.list())
+		String[] list = resFolder.list();
+		if(list == null){
+			return;
+		}
+
+		for (String fileName : list)
 		{
 			String name;
 			if (fileName.equals(VALUES))

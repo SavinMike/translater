@@ -46,7 +46,7 @@ public class AndroidRules extends ReaderRules
 		if (Pattern.matches(".*<[ ]*/[ ]*string[ ]*>[ ]*", next))
 		{
 			isMessage = false;
-			Pattern pattern = Pattern.compile("name[ ]*=[ ]*\\\".*\\\".*>(.*)</string>");
+			Pattern pattern = Pattern.compile("name[ ]*=[ ]*\\\".*\\\"[ translatable=\"truefalse\"]*>(.*)</string>");
 			notifyIfContains(ActionType.VALUE, next, pattern);
 			notifyListener(ActionType.DONE, next);
 		}

@@ -1,0 +1,20 @@
+id	en	hu	de	
+museum_site	http://www.imm.hu/			
+app_name	IMM Museum			
+menu_galleries_label	Galleries Online	Galériák online		
+menu_favorites	Liked Items	Kedvencek		
+menu_about	About the museum	Múzeumunkról		
+wizard_welcome	Welcome\nto the Museum of\nApplied Arts!	Üdvözlünk az\nIparművészeti Múzeumban!		
+wizard_title_1	Guided tours	Tematikus séták		
+wizard_description_1	Interactive tours in our museum building and exhibitions.	Interaktív vezetések a múzeum épületében és a kiállításokban.		
+wizard_description_2	Explore our permanent and temporary exhibitions.	Fedezd fel állandó és időszaki kiállításainkat!		
+wizard_title_3	Galleries Online	Galériák online		
+wizard_description_3	Visit online featured artworks of our galleries.	Ismerd meg gyűjteményeink kiemelt műtárgyait!		
+send_feedback	Send us your feedback	Vendégkönyv		
+menu_home		Nyitóoldal		
+menu_exhibitions		Kiállítások		
+menu_tours		Tematikus séták		
+menu_settings		Beállítások		
+menu_facility		Szolgáltatások		
+wizard_title_2		Kiállítások		
+date_format		yyyy.MMMM dd		

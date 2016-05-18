@@ -1,0 +1,78 @@
+id	de	
+app_name	Deutschklang	
+share_text	Check out dialect prediction maps and download the English Dialect App: http://www.englishdialectapp.com/download	
+network_error_code	Something went wrong:	
+network_error_no_connection	Connection failed, please check your connection	
+network_error_server_api	Something went wrong, please try later	
+network_error_other	Something went wrong	
+network_error_loading_audio	There was a problem loading audio file. Please check your network connection and try again.	
+network_error_transport	Connection failed, check your connection or try to reconnect	
+network_error_no_words	No words	
+quiz_intro	How to use the dialect guessing quiz	
+quiz_intro_description	In order to find your dialect, the app needs information about your pronunciation of certain words.\n\nThe app asks you how you say 26 different words. Some of the words have different pronunciations – you can listen to the different options. For each word, choose the word, phrase or pronunciation that is most like the one you use when talking to your friends. Have a look at all the options for each word before you choose.\n\nPlease note:\n\n1). You might not find your exact pronunciation of some of the words on the app. Don’t worry, just choose the one that is closest to the one you use.\n\n2). The app compares your pronunciation with elderly people whose dialects were studied over 50 years ago in the Survey of English Dialects. So the app’s guess might not be very good because language has changed a lot since then. BUT if you tell us which accent you speak at the end of the quiz, your answers can be used to make the app better in the future.	
+prediction_btn_start	Start dialect quiz	
+menu_share	Share	
+prediction_result_title	The app guesses that your dialect is from:	
+prediction_result_btn_ja	Yes	
+prediction_result_btn_nein	No	
+prediction_result_confirm_result	Is that correct?	
+share_facebook	Facebook	
+share_twitter	Twitter	
+share_email	Email	
+share_other	Other	
+prediction_feedback_header	Please rate how correct the result is	
+prediction_feedback_submit	Send	
+how_btn_how	@string/where_do_they	
+where_do_they	Where do they say…	
+btn_ho_do_they_pronounce	How do they pronounce…	
+how_info	Choose one of the possible answers for a particular word (for example, ‘fall’ for ‘the season that follows summer‘) and view where in England speakers used to use this variant.	
+how_info_secondary	Choose a place and see how the quiz words were used there,	
+error_dialog_retry	Restart	
+error_dialog_ok	OK	
+dialog_error_cancel	Cancel	
+btn_show_other	Show other words	
+btn_share	Share	
+share_hint	Enter text to share	
+record_header	Record &amp; Listen	
+record_info_one	Here you can record yourself, or listen to recordings that others have made. Listen to recent recordings by other app users (purple pins), or listen to historical recordings from the Survey of English Dialects (green pins).	
+record_btn_next	Next	
+record_profile_title	Record your own accent	
+record_prodile_info	Hier können Sie Sätze in Ihrer Aussprache aufnehmen und diese dabei anonym auf unserer interaktiven Karte velinken. So werden Ihre Aufnahmen für andere Benutzer hörbar.	
+record_profile_btn_record	Start Recording	
+record_location_info	Move and zoom the map to set the pin to the correct location.	
+record_location_label	Your accent	
+record_profile_unknown_place	Unknown place	
+record_prequiz_title	Instructions	
+record_pre_quiz_info	Please record your voice in a quiet place. Hold your device approximately 6 inches/15 cm from your mouth.	
+record_pre_quiz_info_secondary	Please use your regional accent or dialect and speak in the way you would talk to your friends from home.	
+record_prequiz_btn_start	Start	
+record_quiz_menu_skip	Skip	
+record_quiz_btn_finish	Finish	
+no_result	No result	
+map_btn_set	Set Location	
+title_get_location	Select Location	
+record_about_wifi	If you‘re not using wi-fi, just remember that your mobile company might charge you for sending the recording over the network.	
+send_quiz_result_failed	We are very sorry, we could not upload your recordings to server.	
+info_methods	Our methods	
+info_about_us	About us	
+info_privacy	Privacy policy	
+choose_place	Choose..	
+info_acknowledgments	Wizard	
+recorded_regexp	Recorded in %1$d	
+recordings_of_users	User recordings	
+historical_photographs	Historical Recording	
+act_dialog_info_start_button	Let\'s get started!	
+historical_recording_from_reg_exp	historical recording from\n%1$s	
+regex_location	%1$s,%2$s	
+ok	Ok	
+feedback_info	Please participate in our research. Tell us the location where people speak the way you speak:	
+button_record	Aufnahme starten	
+record_menu_info	Info	
+info_list_title	InfoList	
+record_profile_info	<![CDATA[Wenn Sie auf ‘Aufnahme starten’ klicken, so stimmen Sie unseren Datenschutzbestimmungen zu; siehe Info Tab > Datenschutz]]>	
+wizard_button_start	Start	
+wizard_text	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
+wizard_title	Wizard	
+info_methods_url	http://www.englishdialectapp.com/static/android/methodology.html	
+info_about_us_url	http://www.englishdialectapp.com/static/android/about_us.html	
+info_privacy_url	http://www.englishdialectapp.com/privacy	

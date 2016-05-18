@@ -1,0 +1,8 @@
+CSV_PATH=/home/arello/Work/translaterGit/translater/LuxApp/
+
+ANDROID_LOCATION=/home/arello/Work/luxApp/android/lux-app/app/
+ANDROID_INCLUDING=strings.xml
+ANDROID_DEFAULT_LOCATION=de
+
+IOS_LOCATION=/home/arello/Work/luxApp/ios/iOS/LuxApp
+IOS_DEFAULT_LOCATION=de

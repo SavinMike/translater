@@ -1,0 +1,403 @@
+id	de	en	hu	
+Please keep filesize under 50Mb	Bitte begrenzen Sie die Dateigröße auf 50Mb.	Please keep filesize under 50Mb	Kérjük, tartd a fájlméret 50MB alatt.	
+We don't support this file format. Please choose an image in JPG, GIF or PNG	Nicht unterstütztes Dateiformat. Bitte verwenden Sie JPG, GIF oder PNG-Dateien.	We don't support this file format. Please choose an image in JPG, GIF or PNG	Ez a fájlformátum nem támogatott. Kérjük válassz JPG, GIF vagy PNG formátumot.	
+This file not exists	Nicht vorhandene Datei.	This file not exists	Ez a fájl nem létezik	
+Bad preload filename	Nicht vorhandener Dateiname.	Bad preload filename	Hibás fájlnév	
+Image	Bild	Image	Kép (Image)	
+This field is required	Eintrag erforderlich	This field is required	Mező kitöltése kötelező.	
+Indoors API key	Indoo.rs API-Schlüssel	Indoors API key	Beltéri API-kulcs	
+Indoors building name	Indoo.rs Gebäudename	Indoors building name	Beltéri épület neve	
+Name	Name	Name	Név	
+Field Name	Bezeichnung	Field Name	Mező neve	
+Default Value	Standard	Default Value	Alapértelmezett érték	
+Enter text...	Texteingabe...	Enter text...	Írd be a szöveget...	
+Email	E-Mail	Email	Email	
+Password	Passwort	Password	Jelszó	
+Please enter email and password	Bitte geben Sie E-Mail Adresse und Passwort ein.	Please enter email and password	Kérjük, add meg az email címet és a jelszót	
+Please enter a correct %(username)s and password. Note that both fields may be case-sensitive.	Bitte geben %(username)s und Passwort ein. Groß- und Kleinschreibung beachten.	Please enter a correct %(username)s and password. Note that both fields may be case-sensitive.	Kérjük, írd be a helyes %(username)s és a jelszót. Vedd figyelembe, hogy lehetnek kis-és nagybetűk.	
+This account is inactive.	Ungültiger Benutzername.	This account is inactive.	Ez a fiók nem aktív.	
+There are no application associated with your account. Please contact administrator to fix this problem.	Es gibt keine mit Ihrem Konto verbundenen Anwendungen. Bitte kontaktieren Sie den Administrator.	There are no application associated with your account. Please contact administrator to fix this problem.	A fiókodhoz nincsen alkalmazás rendelve. Kérjük, fordulj a rendszergazdához a probléma megoldásához.	
+Major	Major	Major	Major	
+Minor	Minor	Minor	Minor	
+Navigation ID	Navigation-Nr	Navigation ID	Navigációs ID	
+Start Date		Start Date	Kezdő dátum	
+End Date		End Date	Vége dátum	
+Keywords	Suchbegriff	Keywords	Kulcsszavak	
+Please enter comma separated keywords	Suchbegriffe, bitte durch Komma getrennt einfügen.	Please enter comma separated keywords	Kérjük, írd be vesszővel elválasztott kulcsszavakat	
+Category	Kategorie	Category	Kategória	
+Beacon	Beacon	Beacon	Beacon	
+Points	Points	Points	Points	
+Audio	Audio	Audio	Audió	
+Audio for kids	Audio für Kinder	Audio for kids	Audió gyerekeknek	
+Audio for specialists	Audio für Spezialisten	Audio for specialists	Audió szakembereknek	
+Video	Video	Video	Videó	
+Video for kids	Video für Kinder	Video for kids	Videó gyerekeknek	
+Video for specialists	Video für Spezialisten	Video for specialists	Videó szakembereknek	
+Set of Attributes	Attributesatz	Set of Attributes	Attribútok szetje	
+Galleries	Galerien	Galleries	Galériák	
+Exhibitions	Sonderausstellungen	Exhibitions	Kiállítások	
+Exhibition	Sonderausstellungen	Exhibition	Kiállítás	
+Gallery	Galerie	Gallery	Galéria	
+Please upload at least one image	Bitte laden Sie ein Bild hoch.	Please upload at least one image	Kérjük, legalább egy képet töltsél fel.	
+ID Number	ID-Nummer	ID Number	Azonosító szám	
+Icon	Symbol	Icon	Ikon	
+Position	Standort	Position	Pozíció	
+Voucher	Gutschein	Voucher	Utalvány	
+New password	Neues Passwort	New password	Új jelszó	
+E-mail	E-Mail	E-mail	Email	
+Please enter a valid email address	Bitte geben Sie eine gültige E-Mail-Adresse ein	Please enter a valid email address	Írj be egy email címet	
+Date valid to	Gültig bis	Date valid to	Meddig érvényes	
+Place	Standort	Place	Helység	
+Here is what you can do:	Was Sie hier tun können:	Here is what you can do:	Ez az, amit tehetsz.	
+Manage your gallery details	Verwalten der Galerie informationen.	Manage your gallery details	A Galéria adatok kezelése	
+Add, edit or remove beacons	Hinzufügen, bearbeiten oder löschen der Beacons.	Add, edit or remove beacons	Beacon hozzáadása, szerkesztése vagy eltávolítása 	
+Password Recovery	Passwort zurücksetzen	Password Recovery	Jelszó visszaállítás	
+Enter your email address to reset your password. You may need to check your spam folder or unblock no-reply@xponia.com	Geben Sie Ihre E-Mail-Adresse, um Ihr Passwort zurückzusetzen. Bitte prüfen Sie auch Ihren Spam-Ordner oder entsperren Sie no-reply@xponia.com	Enter your email address to reset your password. You may need to check your spam folder or unblock no-reply@xponia.com	"Add meg e-mail címedet a jelszó visszaállításához. Lehet, hogy nézd meg a spamt vagy oldd fel a  ""no-reply@xponia.com"""	
+Submit	Senden	Submit	Beküld	
+About the Gallery	Details zum Galerie	About the Gallery	A Galéria adatok kezelése	
+Image editing. Selected area will be shown in mobile application	Bildbearbeitung. Das Vorschaubild ist für den Besucher in der App sichtbar.	Image editing. Selected area will be shown in mobile application	Képszerkesztő. A kijelölt felület jelenik meg a mobil alkalmazáson.	
+Edit Information		Edit Information	Információ szerkesztése	
+Name...	Name…	Name...	Név...	
+Description...	Beschreibung...	Description...	Leírás...	
+Beacon udid...	Beacon UDID	Beacon udid...	Beacon udid...	
+Feedback URL...	Feedback URL	Feedback URL...	Feedback URL-Link	
+Currency		Currency	Pénznem	
+Pages about Gallery		Pages about Gallery	A Galéria adatok kezelése	
+New	Neu	New	Új	
+Edit	Bearbeiten	Edit	Szerkesztés	
+DESCRIPTION	Beschreibung	DESCRIPTION	LEÍRÁS	
+Are you sure?	Sind Sie sicher?	Are you sure?	Biztosan szeretnéd?	
+Delete	Löschen	Delete	Törlés	
+Page	Seite	Page	Oldal	
+is published	veröffentlicht	is published	Közzétett	
+is not published	ist nicht veröffentlicht	is not published	Nem közétett	
+Save	Speichern	Save	Mentés	
+Reset	Zurücksetzen	Reset	Visszaállítás	
+Exhibits	Exponate	Exhibits	Tárgyak	
+Point Attribute Sets	Attributesatz der Exponate	Point Attribute Sets	Point Attribútomok szetje	
+Add Attribute Set	Attributesatz hinzufügen	Add Attribute Set	Új attribútomok szetje	
+Set Name...	Name Attributesatz...	Set Name...	Szet neve...	
+Field Type	Feldtyp	Field Type	Mező típusa	
+Add	Hinzufügen	Add	Hozzátesz	
+Field	Bezeichnung	Field	Mező	
+Add Attribute	Attribut hinzufügen	Add Attribute	Új attribútom	
+Remove Attribute	Attribut löschen	Remove Attribute	Attríbutom törlése	
+Exhibit Attribute Sets	Attributesatz der Exponate	Exhibit Attribute Sets	Tárgyak attribútomok szetje	
+New Attribute Set	Neuer Attributsatz	New Attribute Set	Új attribútomok szetje	
+Edit Attribute Set	Attributsatz bearbeiten	Edit Attribute Set	Attribútomok módosítása	
+Delete Attribute Set	Attributsatz löschen	Delete Attribute Set	Attribútomok szetje törlése	
+Beacons	Beacons	Beacons	Beacons	
+Add Beacon	Beacon hinzufügen	Add Beacon	Új Beacon	
+New Beacon	Neuer Beacon	New Beacon	Új Beacon	
+Edit beacon	Beacon bearbeiten	Edit beacon	Beacon szerkesztés	
+UDID	UDID	UDID	UDID	
+Created	Erstellt	Created	Létrehozva	
+Delete beacon	Beacon löschen	Delete beacon	Törlés beacon	
+Collections	Sammlungen	Collections	Gyűjtemények	
+Add Collection	Sammlung hinzufügen	Add Collection	Új gyűjtemény	
+Collection Details	Beschreibung der Sammlung	Collection Details	Gyűjtemény részletek	
+Collection Name...	Name der Sammlung...	Collection Name...	Gyűjtemény neve ...	
+Location...	Standort…	Location...	Helyszín...	
+Collection	Sammlung	Collection	Gyűjtemény	
+Click to enter date...	Klicken Sie hier, um ein Datum einzugeben.	Click to enter date...	Kattints ide add meg a dátumot...	
+Enter number...	Zahl hinzufügen	Enter number...	Adj meg egy számot...	
+Click to enter time...	Klicken Sie hier, um die Zeit einzugeben.	Click to enter time...	Kattints ide add meg az időt...	
+Close	Schließen	Close	Bezár	
+Save changes and continue	Änderungen speichern	Save changes and continue	Módosítások mentése és tovább	
+Loading map...	Herunterladen von Karten ...	Loading map...	Alaprajz feltöltése	
+Guided Tours	Führungen	Guided Tours	Tárlatvezetés	
+Vouchers	Gutscheine	Vouchers	Utalványok	
+Quizzes	Quiz	Quizzes	Kvízek	
+Map	Karte	Map	Alaprajz	
+Events		Events	Programok	
+Services		Services	Szolgáltatások	
+Your Account	Ihr Konto	Your Account	Fiókod	
+Log Out	Abmelden	Log Out	Kijelentkezés	
+Required Field,Optional Field	Pflichtfeld, optionales Feld	Required Field,Optional Field	Kötelező mező, nem kötelező mező	
+Add Event		Add Event	Új program	
+Event Details		Event Details	Program részletei	
+Description	Beschreibung	Description	Leírás	
+Event Type	Event	Event Type	Program Típusa	
+Booking Link		Booking Link	Link	
+Ticket Price		Ticket Price	Jegyár	
+New Event	Neues Event	New Event	Új program	
+STARTS	Beginn	STARTS	Kezdődik	
+FINISHES	Ende	FINISHES	Végződik	
+Event	Event	Event	Program	
+Delete Event		Delete Event	Program törlése	
+EVENT TYPE		EVENT TYPE	PROGRAM TÍPUSA	
+Add Exhibition	Sonderausstellung hinzufügen	Add Exhibition	Új kiállítás	
+Exhibition Details	Beschreibung Sonderausstellung	Exhibition Details	Kiállítás részletek	
+Exhibtion Name...	Name der Sonderausstellung	Exhibtion Name...	Kiállitás neve ...	
+Date Start...	Beginn	Date Start...	Kezdődátum	
+Date End...	Ende	Date End...	Végdátum	
+Artists...	Künstler...	Artists...	Művészek ...	
+Age...	Alter	Age...	Kor...	
+Url...	URL	Url...	Link...	
+Keywords...	Suchbegriff	Keywords...	Kulcsszavak ...	
+No Exhibits	Keine Exponate	No Exhibits	Tárgyak nincsenek	
+New Exhibition	Neue Sonderausstellung	New Exhibition	Új kiállítás	
+Closing Soon	Schliesst demnächst	Closing Soon	Hamarosan zár	
+Coming Soon	Eröffnung in Kürze	Coming Soon	Hamarosan!	
+Delete Exhibition	Sonderausstellung löschen	Delete Exhibition	Kiállítás törlése	
+EXHIBITS	Exponate	EXHIBITS	Tárgyak	
+TOURS	Führungen	TOURS	Tárlatvezetések	
+Add Exhibit	Exponat hinzufügen	Add Exhibit	Új tárgyak	
+Image editing. Selected area will be shown in POI detail	Bildbearbeitung. Das Vorschaubild ist für den Besucher in der App sichtbar.	Image editing. Selected area will be shown in POI detail	Képszerkesztő. A kiválasztott terület látható a tárgy részletezésén	
+Exhibit Details	Exponat Informationen	Exhibit Details	Tárgy részletek	
+Exhibit Name...	Name des Exponats...	Exhibit Name...	Tárgy neve	
+Description for kids	Beschreibung für Kinder	Description for kids	Leírás gyerekeknek	
+Description for specialists	Beschreibung für Spezialisten	Description for specialists	Leírás szakembereknek	
+Subpoints		Subpoints	Alpontok	
+New Subpoint		New Subpoint	Új alpont	
+Delete subpoint		Delete subpoint	Alpont törlése	
+Subpoint		Subpoint	Alpont	
+Media	Media	Media	Média	
+Drop or click for upload image	Ziehen und Klicken um Bild hochzuladen	Drop or click for upload image	Drop vagy klik a kép feltöltéséhez.	
+New Exhibit	Exponat hinzufügen	New Exhibit	Új tárgy	
+Manage Attributes	Attribute bearbeiten	Manage Attributes	Attribútumok szerkesztése	
+Edit Exhibit	Exponat bearbeiten	Edit Exhibit	Tárgy szerkesztése	
+subpoints		subpoints	Alpontok	
+GALLERY	GALERIE	GALLERY	Galéria	
+EXHIBITION	SONDERAUSSTELLUNG	EXHIBITION	KIÁLLÍTÁS	
+Exhibit	Exponate	Exhibit	Tárgy	
+Delete Exhibit	Exponat löschen	Delete Exhibit	Tárgy törlése	
+Add Service		Add Service	Új szolgáltatás	
+Open...	Geöffnet...	Open...	Megnyit...	
+Categories	Kategorien	Categories	Kategóriák	
+CATEGORY	KATEGORIE	CATEGORY	Kategória	
+OPEN	GEÖFFNET	OPEN	Nyitva	
+Service Categories		Service Categories	Szolgáltatás kategóriák	
+Add Service Category		Add Service Category	Szolgáltatás kategória hozzáadása	
+Service Category Details		Service Category Details	Szolgáltatás kategória részletek	
+SERVICES		SERVICES	SZOLGÁLTATÁSOK	
+icon	Symbol	icon	Ikon	
+Add Gallery	Galerie hinzufügen	Add Gallery	Új galéria	
+Gallery Details	Beschreibung der Galerie	Gallery Details	Galéria adatok	
+Gallery Name...	Name der Galerie	Gallery Name...	Galéria neve	
+Gallery Exhibits	Exponate der Galerie	Gallery Exhibits	Galéria tárgyai	
+New Gallery	Neue Galerie	New Gallery	Új galéria	
+COLLECTION	SAMMLUNG	COLLECTION	Gyűjtemény	
+Delete Gallery	Galerie löschen	Delete Gallery	Galéria törlése	
+Add Guided Tour	Führung hinzufügen	Add Guided Tour	Új tárlatvezetés	
+Guided Tour Name...	Name der Führung	Guided Tour Name...	Tárlatvezetés neve	
+Duration...	Gültigkeit...	Duration...	Időtartam	
+Guided Tour Exhibits	Exponate zur Führung	Guided Tour Exhibits	Tárlatvezetés tárgyai	
+Add Exhibits	Exponate hinzufügen	Add Exhibits	Új tárgyak	
+Select Exhibits	Exponate auswählen	Select Exhibits	Tárgyak megjelölése	
+New Guided Tour	Neue Führung	New Guided Tour	Új tárlatvezetés	
+Guided Tour	Führung	Guided Tour	Tárlatvezetés	
+Delete Guided Tour	Führung löschen	Delete Guided Tour	Tárlatvezetés törlése	
+DURATION	Gültigkeit	DURATION	Időtartam	
+XPonia	XPONIA	XPonia	Xponia	
+Help	Hilfe	Help	Segítség	
+Search	Suche	Search	Keresés	
+Application points	Anwendung	Application points	Alkalmazás	
+Loading	Herunterladen	Loading	Töltés	
+has been loaded	erfolgreich aktualisiert.	has been loaded	Feltöltve	
+Could not load	Konnte nicht laden	Could not load	Sikertelen feltöltés	
+Building floors	Gebäude Etagen	Building floors	Emeletek	
+Building options	Gebäudeoptionen	Building options	Épületi opciók	
+tiles	Dachziegel	tiles	Csempék	
+zones	Zonen	zones	Zónák	
+Edit Profile	Profil ändern	Edit Profile	Profíl szerkesztése	
+Edit Indoors Settings	Bearbeiten der indoo.rs Einstellungen	Edit Indoors Settings	Beltéri adatok szerkesztése	
+Add Page	Seite hinzufügen	Add Page	Új oldal	
+Add Quiz	Quiz hinzufügen	Add Quiz	Új kvíz	
+Questions	Fragen	Questions	Kérdések	
+Add Question	Frage hinzufügen	Add Question	Új kérdés	
+question	Frage	question	Kérdés	
+QUESTIONS	Fragen	QUESTIONS	Kérdések	
+VOUCHER	Gutschein	VOUCHER	Utalvány	
+Quiz	Quiz	Quiz	Kvíz	
+Delete Quiz	Quiz löschen	Delete Quiz	Kvíz törlése	
+Add Answer	Antwort hinzufügen	Add Answer	Válasz szerkesztése	
+Answers	Antworten	Answers	Válaszok	
+answer	Antwort	answer	Válasz	
+Subpoint Details		Subpoint Details	Alpont adatai	
+Change Password	Passwort ändern	Change Password	Jelszó cserélése	
+You're receiving this email because you requested a password reset for your user account at %(site_name)s.	Sie erhalten diese E-Mail, weil Sie ein Passwort-Reset für Ihr Benutzerkonto bei %(site_name)s angefordert haben.	You're receiving this email because you requested a password reset for your user account at %(site_name)s.	Azért kapja ezt az e-mailt, mert kérte a jelszó visszaállítását a felhasználói fiók %(site_name)s hoz.	
+Please go to the following page and choose a new password:	Bitte gehen Sie zur folgenden Seite, und legen Sie ein neues Passwort fest.	Please go to the following page and choose a new password:	Kérjük, a következő oldalon válassz egy új jelszót:	
+Your username, in case you've forgotten:	Ihr Benutzername:	Your username, in case you've forgotten:	Felhasználói neved, abban az esetben, ha elfelejtetted:	
+Thanks for using our site!	Vielen Dank, dass Sie unseren Service nutzen!	Thanks for using our site!	Köszönjük, az oldalunk használatát!	
+The %(site_name)s team	Ihr %(site_name)s Team	The %(site_name)s team	A %(site_name)s csapata.	
+Update Profile	Profil aktualisieren	Update Profile	Profíl frissítése	
+Add Voucher	Gutschein hinzufügen	Add Voucher	Új utalvány	
+Edit Voucher	Gutschein bearbeiten	Edit Voucher	Utalvány szerkesztése	
+New Voucher	Neuer Gutschein	New Voucher	Új utalvány	
+Title...	Name	Title...	Cím	
+Valid To...	Gültig bis	Valid To...	Érvényesség ideje	
+Place...	Standort	Place...	Helység	
+EXPIRES	Ablauf am	EXPIRES	Lejár	
+PLACE	Standort	PLACE	Helység	
+EXPIRED	Abgelaufen	EXPIRED	Lejárt	
+ACTIVE	Gültig	ACTIVE	Aktív	
+Delete Voucher	Gutschein löschen	Delete Voucher	Utalvány törlése	
+Delete voucher	Gutschein löschen	Delete voucher	Utalvány törlése	
+Login to CMS	Anmelden zum CMS	Login to CMS	Bejelentkezés a CMS-hez	
+Sign In	Anmelden	Sign In	Belépés	
+Forgot your password?	Passwort vergessen?	Forgot your password?	Elfelejtetted jelszavadat?	
+Update password	Passwort aktualisieren	Update password	Jelszó frissítése	
+Pages	Seiten	Pages	Oldalak	
+Museum	Museum	Museum	Múzeum	
+Attribute Set	Attributesatz	Attribute Set	Attribútomok szetje	
+Edit Beacon	Beacon bearbeiten	Edit Beacon	Beacon szerkesztés	
+collection	sammlung	collection	Gyűjtemény	
+Edit Collection	Sammlung bearbeiten	Edit Collection	Gyűjtemény szerkesztése...	
+Edit Event		Edit Event	Program szerkesztése	
+Edit Exhibition		Edit Exhibition	Kiállítás szerkesztése	
+Edit Point	Objekt bearbeiten	Edit Point	Point szerkesztése	
+Service		Service	Szolgáltatás	
+Edit Service		Edit Service	Szolgáltatás szerkesztése	
+Service Category		Service Category	Szolgáltatás kategória	
+Edit Service Category		Edit Service Category	Szolgáltatás kategória módosítása	
+Edit Gallery		Edit Gallery	Galéria szerkesztése	
+Edit Guided Tour	Führung bearbeiten	Edit Guided Tour	Tárlatvezetés szerkesztése 	
+Please fill the fields: building_name and api_key	Bitte füllen Sie die Felder: Building_name und Api_key	Please fill the fields: building_name and api_key	Kérjük, töltsd ki a mezőket: épület neve és api kulcs	
+Could not load floors	Etagen konnte nicht geladen werden.	Could not load floors	Emeletek fájl feltöltése sikertelen	
+Could not load floor zones	Zonen der Etagen konnten nicht geladen werden.	Could not load floor zones	Zónák fájl feltöltése sikertelen	
+Could not load floor tiles	Kacheln der Etagen konnten nicht geladen werden.	Could not load floor tiles	Emelet egységek fájl feltöltése sikertelen	
+map	karte	map	Alaprajz	
+Welcome To Backend!	Willkommen zum Backend!	Welcome To Backend!	Üdvözöljük a backendhez!	
+Edit Page	Seite bearbeiten	Edit Page	Oldal szerkesztése	
+Could not send password recovery email at the moment, please try again later	Die Passwort-Recovery E-Mail konnte leider nicht versendet werden. Bitte versuchen Sie es später erneut.	Could not send password recovery email at the moment, please try again later	Jelszó recovery email elküldése sikertelen, később próbálkozz újra.	
+Enter new password	Neues Passwort eingeben	Enter new password	Add meg az új jelszót	
+Password reset unsuccessful	Passwort konnte nicht zurückgesetzt werden.	Password reset unsuccessful	Jelszó visszaállítása sikertelen	
+Edit Quiz	Quiz bearbeiten	Edit Quiz	Kvíz szerkesztése	
+Edit Question	Frage bearbeiten	Edit Question	Kérdés szerkesztése	
+Question	Frage	Question	Kérdés	
+Edit Answer	Antwort bearbeiten	Edit Answer	Válasz szerkesztése	
+Answer	Antwort	Answer	Válasz	
+subpoint		subpoint	Részletek / Alpontok	
+Add Subpoint		Add Subpoint	Alpontok szerkesztése	
+%s has been %s	%s wurde %s erfolgreich aktualisiert.	%s has been %s	%s %s	
+published	veröffentlicht	published	közzétett	
+unpublished	unveröffentlicht	unpublished	nem közzétett	
+%s has been %s as featured	%s wurde %s erfolgreich aktualisiert.	%s has been %s as featured	%s %s kiemeltként	
+marked	markiert	marked	jelölve	
+unmarked	nicht markiert	unmarked	nem jelölve	
+%s not found	%s nicht gefunden	%s not found	%s nem található	
+Invalid data	ungültige Eingabe	Invalid data	Érvénytelen adatok	
+Profile	Profil	Profile	Adatlap	
+Password has been changed	Das Passwort wurde geändert.	Password has been changed	Jelszavad megváltozott.	
+Update Event	Event aktualisieren	Update Event	Program frissítése	
+Program segment	Segment	Program segment	Program szegmens	
+Add new segment to a program	Segment hinzufügen	Add new segment to a program	Új program hozzáadása	
+Update program segment	Segment aktualisieren	Update program segment	Program frissítése	
+Explore	Entdecken	Explore	Fedezd fel	
+Explore group	Entdecken	Explore group	Fedezd fel	
+Product	Produkt	Product	Termék	
+Restaurant	Restaurant	Restaurant	Étterem	
+created	erstellt	created	létrehozva	
+updated	aktualisiert	updated	frissítve	
+Image size must be greater than {width}px, {height}px	Bildgröße muß größer sein als {width}px, {height}px	Image size must be greater than {width}px, {height}px	Kép mérete legyen szélesebb mint {width} px és magasabb mint {height} px.	
+Image size must be equal {width}px, {height}px	Bildgröße muß sein gleich {width}px, {height}px	Image size must be equal {width}px, {height}px	Kép mérete legyen {width} px, {height} px nagyságú.	
+Image size must be less than {width}px, {height}px	Bildgröße muss kleiner sein als {width}px, {height}px	Image size must be less than {width}px, {height}px	Kép mérete legyen keskenyebb mint {width} px és alacsonyabb mint {height} px.	
+Enable language(s)	Aktivieren von Sprache(n)	Enable language(s)	Nyelv(ek) bekapcsolása	
+Disable language(s)	Deaktivieren Sie die Sprache(n)	Disable language(s)	Nyelv(ek) kikapcsolása	
+Default	Standard	Default	Alapértelmezett érték	
+Disable	Deaktivieren	Disable	Ki	
+Enable	Aktivieren	Enable	Be	
+Actions	Tätigkeiten	Actions	Műveletek	
+Personal info	Persönliche Information	Personal info	Személyes adat	
+Application	Anwendung	Application	Alkalmazás	
+Permissions	Berechtigungen	Permissions	Jogosultságok	
+Important dates	Wichtige Termine:	Important dates	Fontos dátumok	
+Venue is empty	Einrichtung ist leer.	Venue is empty	Helyszín foglalható	
+Import beacons	Importiere Beacons	Import beacons	Beacon import	
+A user with that email already exists.	Ein Benutzer mit dieser Email existiert bereits.	A user with that email already exists.	Az email cím már létezik.	
+The two password fields didn't match.	Die eingegebenen Passwörter stimmen nicht überein.	The two password fields didn't match.	A két jelszó mező nem egyezik.	
+Password confirmation	Bestätigung des Passworts	Password confirmation	Jelszó megerősítése	
+Enter the same password as above, for verification.	Passwort wiederholen	Enter the same password as above, for verification.	Kérjük, add meg ugyanazt a jelszót.	
+"Raw passwords are not stored, so there is no way to see this user's password, but you can change the password using <a href=""password/"">this form</a>."	"Raw-Passwörter werden nicht gespeichert, so dass es keine Möglichkeit gibt, das Kennwort dieses Benutzers zu sehen, aber Sie können das Passwort mit Hilfe ändern <a href=""password/"">Sie dieses Formular.</a>"	"Raw passwords are not stored, so there is no way to see this user's password, but you can change the password using <a href=""password/"">this form</a>."	"Nyers jelszavak nem tárolódnak, így nincs mód, hogy a felhasználó jelszó megtekintésére, de meg tudod változtatni a jelszót <a href=""password/"">ezen az űrlapon</a>keresztül."	
+name	Name	name	Név	
+local name	Bezeichnung	local name	Név...	
+code	Code	code	kód	
+enabled	aktiviert	enabled	be	
+Language	Sprache	Language	Nyelv	
+Languages	Sprachen	Languages	Nyelvek	
+email address	Email-Adresse	email address	Email cím	
+first name	Vorname	first name	Keresztnév	
+last name	Nachname	last name	Családi név	
+staff status	Mitarbeitertitel	staff status	személyzeti státusz	
+Designates whether the user can log into this admin site.	Administrator-Genehmigung	Designates whether the user can log into this admin site.	Kijelöli, hogy a felhasználó bejelentkezhet-e az admin-felületre.	
+active	Aktiv	active	aktív	
+Designates whether this user should be treated as active. Unselect this instead of deleting accounts.	Zeigt, ob der Benutzer als aktiv geschlüsselt ist. Deaktivieren Sie den Benutzer, anstelle der Kontolöschung.	Designates whether this user should be treated as active. Unselect this instead of deleting accounts.	Kijelöli, hogy a felhasználó aktív-e. Ezt jelöld meg, a felhasználó törlése helyett.	
+date joined	Eintrittsdatum	date joined	Kezdődátum	
+phone	Telefon	phone	Telefonszám	
+user	Nutzer	user	Felhasználó	
+users	Nutzer	users	Felhasználók	
+image	Bild	image	Kép	
+description	Beschreibung	description	Adatok	
+venue	Museum	venue	Helyszín	
+beacon udid	Beacon udid	beacon udid	Beacon udid	
+indoors api key	Indoo.rs API-Schlüssel	indoors api key	Beltéri api-kulcs	
+indoors building name	Indoo.rs Gebäudename	indoors building name	Beltéri épület neve	
+feedback url	Feedback URL	feedback url	Feedback URL...	
+application	Applikation	application	Alkalmazás	
+applications	Applikation	applications	Alkalmazások	
+udid	udid	udid	UDID	
+major	major	major	Major	
+minor	minor	minor	Minor	
+title	Titel	title	Cím	
+place	Standort	place	Helység	
+date valid to	Gültig bis	date valid to	Érvényesség ideje	
+voucher	gutschein	voucher	Utalvány	
+images	Bilder	images	Képek	
+location	Standort	location	Helyszín	
+order	Bestellung	order	Megrendel	
+collections	sammlung	collections	gyűjtemény	
+guided tour categories	Kategorien	guided tour categories	Tárlatvezetés kategóriák	
+hash	Hash	hash	Hash	
+featured	empfohlen	featured	Kiemelt	
+date start	Beginn	date start	Kezdődátum	
+date end	Ende	date end	Végdátum	
+artists	Künstler	artists	Művészek	
+age	Alter	age	Kor	
+url	URL	url	Link	
+keywords	Suchbegriff	keywords	Kulcsszavak	
+Text Field	Textfeld	Text Field	Szöveges mező	
+Date Field	Datumsfeld	Date Field	Dátummező	
+Numeric Field	Ziffernfeld	Numeric Field	Numerikus mező	
+Time Field	Zeitfeld	Time Field	Időmező	
+description for kids	beschreibung für kinder	description for kids	Leírás gyerekeknek	
+description for specialists	beschreibung für spezialisten	description for specialists	Leírás szakembereknek	
+audio	Audio	audio	Audió	
+audio for kids	audio für kinder	audio for kids	Audió gyerekeknek	
+audio for specialists	audio für spezialisten	audio for specialists	Audió szakembereknek	
+video	Video	video	Videó	
+video for kids	beschreibung für kinder	video for kids	Videó gyerekeknek	
+video for specialists	video für spezialisten	video for specialists	Videó szakembereknek	
+attributes	Attribute	attributes	Attribútumok	
+exhibit	exponate	exhibit	tüntet, mutat	
+duration	Dauer	duration	időtartam	
+guided tour	führung	guided tour	tárlatvezetés	
+quiz	quiz	quiz	kvíz	
+quizzes	quiz	quizzes	kvízek	
+questions	fragen	questions	kérdések	
+correct	Richtig	correct	helyes	
+answers	antworten	answers	válaszok	
+service category		service category	szolgáltatás kategória	
+service categories		service categories	szolgáltatás kategóriák	
+open	geöffnet	open	Nyitva	
+service		service	szolgáltatás	
+services		services	szolgáltatások	
+page	Seite	page	oldal	
+pages	Seiten	pages	oldalak	
+Hash		Hash		
+Past		Past	Múlt	
+Today		Today	Ma	
+Tomorrow		Tomorrow	Holnap	
+This Week		This Week	Ezen a héten	
+Please correct errors below	Bitte korrigieren Sie die Fehler unten.	Please correct errors below	Kérjük javítsd az alábbi hibákat	
+%s has been successfully created	%s wurde erfolgreich erstellt.	%s has been successfully created	%s sikeresen létrejött	
+%s has been successfully updated	%s wurde erfolgreich aktualisiert.	%s has been successfully updated	%s sikeresen frissítve	
+%s has been successfully deleted	%s wurde erfolgreich gelöscht.	%s has been successfully deleted	%s sikeresen törölve	
+You have no permission for view %s	Sie haben keine Berechtigung zur Ansicht von %s	You have no permission for view %s	Nincs jogosultságod a %s nézethez.	
+You have no permission for change %s	Sie haben keine Berechtigung zur Änderung von %s	You have no permission for change %s	Nincs jogosultságod a %s módosításához.	
+You have no permission for create %s	Sie haben keine Berechtigung zur Erstellung von %s	You have no permission for create %s	Nincs jogosultságod a %s szerkesztéséhez.	
+You have no permission for delete %s	Sie haben keine Berechtigung zur Löschung von %s	You have no permission for delete %s	Nincs jogosultságod a %s törléséhez.	
+You have no permission for publish/unpublish %s	Sie haben keine Berechtigung zur Freigabe von %s	You have no permission for publish/unpublish %s	Nincs jogosultságod a %s közzétételhez.	
+Password reset link has been sent to the specified mailbox	Ein Link zum Zurücksetzen des Passworts wurde an Ihre Emailadresse gesandt.	Password reset link has been sent to the specified mailbox	Jelszó viszzaállítási link lett küldve a megadott postafiókra.	
+Xponia Admin	XPONIA Admin	Xponia Admin	Xponia Admin	
+Xponia	XPONIA	Xponia	Xponia	

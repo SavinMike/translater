@@ -1,0 +1,100 @@
+
+"welcome_to_museum_message"  = "Welcome!";
+
+//Plural forms
+
+"gallery" = "shop";
+
+//"e.g. for 2, 3, 4 by russian will be 'галереи'"
+"galleries_first_plural_form" = "shops";
+
+//"e.g. for 5, 6, 7, ... by russian will be 'галерей'"
+"galleries_second_plural_form" = "shops";
+
+//for menu item
+"galleries_general_plural_form" = "Shops & Brands";
+
+"levels" = "Categories";
+
+"exhibit" = "product";
+
+//"e.g. for 2, 3, 4 by russian will be 'экспоната'"
+"exhibits_first_plural_form" = "products";
+
+//"e.g. for 5, 6, 7, ... by russian will be 'экспонатов'"
+"exhibits_second_plural_form" = "products";
+
+//"when you mean exhibits in general, by russian will be 'экспонаты'"
+"exhibits_general_plural_form" = "products";
+
+/* No comment provided by engineer. */
+"Exhibition" = "Promotion";
+
+"exhibitions_general_plural_form" = "Promotions";
+
+"likes_exhibitions_general_plural_form" = "promotions";
+
+/* No comment provided by engineer. */
+"All Guided Tours" = "All Shopping Tours";
+
+/* No comment provided by engineer. */
+"Featured Guided Tours" = "Shopping Tours";
+
+/* No comment provided by engineer. */
+"GUIDED TOUR" = "SHOPPING TOUR";
+
+/* No comment provided by engineer. */
+"Guided Tour" = "Shopping Tour";
+
+/* No comment provided by engineer. */
+"Guided Tours" = "Shopping Tours";
+
+/* No comment provided by enginer. */
+"TOURS" = "TOURS";
+
+/* No comment provided by engineer. */
+"No Featured Guided Tours" = "Currently there are no Featured Shopping Tours";
+
+/* No comment provided by engineer. */
+"AUTOPLAY_ENABLED_KEY" = "Start playing audio as soon as you approach a point of interest in a Shopping Tour.";
+
+//when you mean it in general
+"facilities_general_plural_form" = "Food & Facilities";
+
+"facility_categories_title" = "Categories";
+
+/* No comment provided by engineer. */
+"About the museum" = "About Us";
+
+
+"exhibitions_tutorial_info"  = "See ongoing and future promotions - there is a lot to see.";
+
+"galleries_tutorial_info"    = "Explore our shops and brands and find out about our amazing products, promotions and services.";
+
+"guided_tours_tutorial_info" = "Our app navigates you through our store to guide you to our shops, brands and entertainment services.";
+
+/* No comment provided by engineer. */
+"Ready for indoor navigation!" = "All services are on and available to use.";
+
+"All services are on and available to use." = "";
+
+/* No comment provided by engineer. */
+"Quiz" = "Contest";
+
+/* No comment provided by engineer. */
+"Quizes" = "Contest";
+
+/* No comment provided by engineer. */
+"SHARE_THE_APP_KEY" = "Download %@ to experience your visit in a whole new way\n%@";
+
+/* No comment provided by engineer. */
+"START THE TOUR" = "START SHOPPING";
+
+
+"allee_exhibition_product" = "promotion";
+
+"allee_exhibition_products_first_plural_form" = "promotions";
+
+"allee_exhibition_products_second_plural_form" = "promotions";
+
+

@@ -32,6 +32,7 @@ public class AndroidWriterRules implements WriterRules
 		if (Pattern.matches("(.*<.*string.*name=\\\".*\\\".*)/>", realString))
 		{
 			compile = Pattern.compile("(.*<.*string.*name=\\\".*\\\".*)/>");
+
 		}
 		else
 		{

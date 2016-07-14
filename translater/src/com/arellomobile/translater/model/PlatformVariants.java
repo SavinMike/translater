@@ -9,14 +9,16 @@ public enum PlatformVariants
 				{
 					return XML;
 				}
-			}, IOS("ios/")
+			},
+	IOS("ios/")
 		{
 			@Override
 			public String getExtension()
 			{
 				return STRINGS;
 			}
-		}, WEB("web/")
+		},
+	WEB("web/")
 		{
 			@Override
 			public String getExtension()

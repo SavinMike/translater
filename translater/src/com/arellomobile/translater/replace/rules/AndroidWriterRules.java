@@ -60,4 +60,10 @@ public class AndroidWriterRules implements WriterRules
 	{
 		return String.format("\t<!--%s-->", commentString);
 	}
+
+	@Override
+	public <E> String addStringSuffix(final TranslateItem<E> translateItem, final E language)
+	{
+		return "";
+	}
 }

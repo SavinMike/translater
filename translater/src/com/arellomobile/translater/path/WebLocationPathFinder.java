@@ -2,6 +2,7 @@ package com.arellomobile.translater.path;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,6 +24,10 @@ public class WebLocationPathFinder extends BaseLocationPathFinder
 	@Override
 	public List<PlatformsPath> getLocations()
 	{
+		if (mProjectPath == null)
+		{
+			return Collections.emptyList();
+		}
 		File localeDir = new File(mProjectPath + LOCALE_PLACE);
 		List<PlatformsPath> platformsPaths = new ArrayList<>();
 

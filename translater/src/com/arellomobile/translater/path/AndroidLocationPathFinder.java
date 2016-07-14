@@ -4,6 +4,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,6 +29,11 @@ public class AndroidLocationPathFinder extends BaseLocationPathFinder implements
 	@Override
 	public List<PlatformsPath> getLocations()
 	{
+		if (mProjectPath == null)
+		{
+			return Collections.emptyList();
+		}
+
 		File localeDir = new File(mProjectPath);
 
 		List<PlatformsPath> platformsPaths = new ArrayList<>();
@@ -56,7 +62,8 @@ public class AndroidLocationPathFinder extends BaseLocationPathFinder implements
 	private void addFromRes(final File resFolder, final List<PlatformsPath> platformsPaths, String flavors)
 	{
 		String[] list = resFolder.list();
-		if(list == null){
+		if (list == null)
+		{
 			return;
 		}
 

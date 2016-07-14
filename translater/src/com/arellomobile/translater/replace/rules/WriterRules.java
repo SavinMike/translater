@@ -15,4 +15,6 @@ public interface WriterRules
 	<E> String updateId(TranslateItem<E> translateItem, E language);
 
 	String getComment(String commentString);
+
+	<E> String addStringSuffix(TranslateItem<E> translateItem, E language);
 }

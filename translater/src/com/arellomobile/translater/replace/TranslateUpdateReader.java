@@ -74,7 +74,7 @@ public class TranslateUpdateReader<T> extends UpdateReader<List<TranslateItem<T>
 					addToList(id);
 				}
 
-				String updateString = mWriterRules.updateString(item, language, String.format(DEFAULT_STRING, item.key));
+				String updateString = mWriterRules.updateString(item, language, String.format(DEFAULT_STRING, item.key)) + mWriterRules.addStringSuffix(item, language);
 				addToList(updateString);
 			}
 		}

@@ -88,4 +88,10 @@ public class WebWriterRules implements WriterRules
 	{
 		return "#" + commentString;
 	}
+
+	@Override
+	public <E> String addStringSuffix(final TranslateItem<E> translateItem, final E language)
+	{
+		return "";
+	}
 }

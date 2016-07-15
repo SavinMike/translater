@@ -20,7 +20,8 @@ public class AndroidRules extends ReaderRules
 	@Override
 	public void checkStringLine(final String next)
 	{
-		if(next.equals(RuleReaderList.END_OF_FILE)){
+		if (next.equals(RuleReaderList.END_OF_FILE))
+		{
 			return;
 		}
 
@@ -63,7 +64,10 @@ public class AndroidRules extends ReaderRules
 				else
 				{
 					Pattern pattern = Pattern.compile("name[ ]*=[ ]*\\\".*\\\".*>(.*)");
-					notifyIfContains(ActionType.VALUE, next, pattern);
+					if (!notifyIfContains(ActionType.VALUE, next, pattern))
+					{
+						notifyListener(ActionType.VALUE, next.trim());
+					}
 				}
 			}
 			else
@@ -73,13 +77,17 @@ public class AndroidRules extends ReaderRules
 		}
 	}
 
-	private void notifyIfContains(ActionType actionType, final String next, final Pattern pattern)
+	private boolean notifyIfContains(ActionType actionType, final String next, final Pattern pattern)
 	{
 		Matcher matcher = pattern.matcher(next);
+		boolean updated = false;
 		while (matcher.find())
 		{
 			notifyListener(actionType, matcher.group(1), next);
+			updated = true;
 		}
+
+		return updated;
 	}
 
 

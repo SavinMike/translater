@@ -24,7 +24,7 @@ public class AndroidResourcesReader extends RuleReaderList<AndroidString>
 		{
 			List<String> comments = new ArrayList<>();
 			String id;
-			String value;
+			StringBuilder value = new StringBuilder();
 
 			@Override
 			public void onAction(final ReaderRules.ActionType actionType, final String next, final String realString)
@@ -39,10 +39,15 @@ public class AndroidResourcesReader extends RuleReaderList<AndroidString>
 						id = next.contains(ReaderRules.QUOT) ? "\"" + next.replaceAll(ReaderRules.QUOT, "\"\"") + "\"" : next;
 						break;
 					case VALUE:
-						value = next.contains(ReaderRules.QUOT) ? "\"" + next.replaceAll(ReaderRules.QUOT, "\"\"") + "\"" : next;
+						if (!value.toString().isEmpty())
+						{
+							value.append(" ");
+						}
+						value.append(next.contains(ReaderRules.QUOT) ? "\"" + next.replaceAll(ReaderRules.QUOT, "\"\"") + "\"" : next);
 						break;
 					case DONE:
-						addToList(new AndroidString(id, value, comments));
+						addToList(new AndroidString(id, value.toString(), comments));
+						value = new StringBuilder();
 						comments.clear();
 						break;
 				}

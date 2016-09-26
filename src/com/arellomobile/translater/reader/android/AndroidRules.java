@@ -20,21 +20,23 @@ public class AndroidRules extends ReaderRules
 	@Override
 	public void checkStringLine(final String next)
 	{
+		boolean id = false;
 		if (next.equals(RuleReaderList.END_OF_FILE))
 		{
 			return;
 		}
 
-		if (Pattern.matches("[ ]*<[ ]*/[ ]*resources[ ]*>[ ]*", next))
+		if (Pattern.matches("\\s*<\\s*/\\s*resources\\s*>\\s*", next))
 		{
 			notifyListener(ActionType.END_OF_FILE, next);
 			return;
 		}
 
-		if (Pattern.matches(".*<[ ]*string.*", next))
+		if (Pattern.matches(".*<\\s*string.*", next))
 		{
 			isMessage = true;
-			Pattern pattern = Pattern.compile("name[ ]*=[ ]*\\\"([\\w\\d_]*)\\\"");
+			id = true;
+			Pattern pattern = Pattern.compile("name\\s*=\\s*\\\"([\\w\\d_]*)\\\"");
 			notifyIfContains(ActionType.ID, next, pattern);
 		}
 
@@ -44,10 +46,20 @@ public class AndroidRules extends ReaderRules
 			return;
 		}
 
-		if (Pattern.matches(".*<[ ]*/[ ]*string[ ]*>[ ]*", next))
+		if (Pattern.matches(".*<\\s*/\\s*string\\s*>\\s*", next))
 		{
 			isMessage = false;
-			Pattern pattern = Pattern.compile("name[ ]*=[ ]*\\\".*\\\"[ translatable=\"truefalse\"]*>(.*)</string>");
+			Pattern pattern;
+
+			if (id)
+			{
+				pattern = Pattern.compile("name\\s*=[\\w\\d_\"]*>(.*)</string>");
+			}
+			else
+			{
+				pattern = Pattern.compile("(.*)</string>");
+			}
+
 			notifyIfContains(ActionType.VALUE, next, pattern);
 			notifyListener(ActionType.DONE, next);
 		}
@@ -55,7 +67,7 @@ public class AndroidRules extends ReaderRules
 		{
 			if (isMessage)
 			{
-				if (Pattern.matches(".*< *string.*/>", next))
+				if (Pattern.matches(".*<\\s*string.*/>", next))
 				{
 					notifyListener(ActionType.VALUE, "", next);
 					notifyListener(ActionType.DONE, next);
@@ -63,10 +75,13 @@ public class AndroidRules extends ReaderRules
 				}
 				else
 				{
-					Pattern pattern = Pattern.compile("name[ ]*=[ ]*\\\".*\\\".*>(.*)");
-					if (!notifyIfContains(ActionType.VALUE, next, pattern))
+					if (!id)
 					{
-						notifyListener(ActionType.VALUE, next.trim());
+						notifyListener(ActionType.VALUE, next);
+					}
+					else
+					{
+						notifyIfContains(ActionType.VALUE, next, Pattern.compile("\\s*<\\s*string [\\w\\d_\"=\\s]*>(.*)"));
 					}
 				}
 			}

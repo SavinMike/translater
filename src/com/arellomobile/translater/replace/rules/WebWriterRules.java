@@ -80,6 +80,7 @@ public class WebWriterRules implements WriterRules
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(WebString.ID).append(" \"");
 		getString(stringBuilder, translateItem.key);
+		stringBuilder.append("\n");
 		return stringBuilder.toString();
 	}
 

@@ -2,9 +2,6 @@ package com.arellomobile.translater.replace.rules;
 
 import com.arellomobile.translater.model.TranslateItem;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Date: 12.02.2016
  * Time: 12:46
@@ -17,7 +14,7 @@ public class AndroidWriterRules implements WriterRules
 
 
 	@Override
-	public <E > String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
+	public <E> String updateString(final TranslateItem<E> translateItem, final E language, final String realString)
 	{
 		if (realString == null)
 		{
@@ -28,31 +25,13 @@ public class AndroidWriterRules implements WriterRules
 		String s = value == null ? "" : value;
 		s = s.replaceAll("\\\\'", AMPERSAND).replaceAll("'", "\\\\'").replaceAll(AMPERSAND, "\\\\'");
 
-		Pattern compile;
-		if (Pattern.matches("(.*<.*string.*name=\\\".*\\\".*)/>", realString))
-		{
-			compile = Pattern.compile("(.*<.*string.*name=\\\".*\\\".*)/>");
-
-		}
-		else
-		{
-			compile = Pattern.compile("(.*<.*string.*name=\\\".*\\\".*)>.+");
-		}
-
-		Matcher matcher = compile.matcher(realString);
-		String result = realString;
-		while (matcher.find())
-		{
-			result = matcher.group(1) + ">" + s + "</string>";
-		}
-
-		return result;
+		return s;
 	}
 
 	@Override
-	public <E > String updateId(final TranslateItem<E> translateItem, final E language)
+	public <E> String updateId(final TranslateItem<E> translateItem, final E language)
 	{
-		return null;
+		return "\t<string name=\"" + translateItem.key + "\">";
 	}
 
 	@Override
@@ -64,6 +43,6 @@ public class AndroidWriterRules implements WriterRules
 	@Override
 	public <E> String addStringSuffix(final TranslateItem<E> translateItem, final E language)
 	{
-		return "";
+		return "</string>";
 	}
 }

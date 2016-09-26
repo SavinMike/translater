@@ -3,11 +3,15 @@ package com.arellomobile.translater.replace.rules;
 import com.arellomobile.translater.reader.ReaderRules;
 import com.arellomobile.translater.replace.UpdateReader;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class AndroidWriterActionListener implements ReaderRules.RulesActionsListener
 {
 	private String id = "";
-	private boolean updated = false;
 	private final UpdateReader<?> mUpdateReader;
+	private boolean containsTranslate;
+	private String result;
 
 	public AndroidWriterActionListener(UpdateReader<?> updateReader)
 	{
@@ -21,26 +25,21 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 		{
 			case COMMENT:
 				mUpdateReader.addToList(realString);
-				updated = false;
 				break;
 			case ID:
-				updated = false;
 				id = next;
+				containsTranslate = mUpdateReader.containsKey(id);
+				Matcher matcher = Pattern.compile("(\\s*<\\s*string[\\sA-Za-z_\\\"=]*>)(.*)").matcher(realString);
+				while (matcher.find())
+				{
+					result = matcher.group(1);
+				}
 				break;
 			case VALUE:
-				if (updated)
+				if (!containsTranslate)
 				{
-					return;
+					result += next;
 				}
-
-				String updatedString = mUpdateReader.getUpdatedString(id, realString);
-
-				if (updatedString == null || !updatedString.equals(realString))
-				{
-					updated = true;
-				}
-
-				mUpdateReader.addToList(updatedString);
 				break;
 			case EMPTY:
 				mUpdateReader.addToList("");
@@ -49,6 +48,18 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 				mUpdateReader.addNewTranslate(next);
 				return;
 			case DONE:
+				if (containsTranslate)
+				{
+					result += mUpdateReader.getUpdatedString(id, realString);
+				}
+
+				Matcher matches = Pattern.compile("(.*)(<\\s*/\\s*string\\s*>)").matcher(realString);
+				while (matches.find())
+				{
+					result += matches.group(2);
+				}
+
+				mUpdateReader.addToList(result);
 				break;
 		}
 	}

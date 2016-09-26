@@ -34,6 +34,8 @@ public abstract class UpdateReader<U> extends RuleReaderList<String>
 
 	public abstract String getUpdatedString(final String key, final String realString);
 
+	public abstract boolean containsKey(final String key);
+
 	@Override
 	public ReaderRules getReaderRules()
 	{

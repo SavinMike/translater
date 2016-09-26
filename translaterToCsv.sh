@@ -2,80 +2,85 @@
 sep='---------------'
 ## declare an array variable
 CURRENT_PATH=`pwd`
-declare -a arr=("Android" "Xponia_iOS" "Web")
+. $CURRENT_PATH/translater.cfg
+if [ -n "$1" ]; then
+	echo "Configutation file is $1"
+	source $CURRENT_PATH/$1
+else
+	echo "Configutation file is translater.cfg"
+	source $CURRENT_PATH/translater.cfg
+fi
 downloadFromRepo()
 {
-	log=$1
-	branchs[0]=$2
-	branchs[1]=$3
-	branchs[2]=$4
+	branches[0]=$android_branch
+	branches[1]=$ios_branch
+	branches[2]=$web_branch
+
+	projectsPath[0]=$android_project_repo
+	projectsPath[1]=$ios_project_repo
+	projectsPath[2]=$web_project_repo
 	counter=0
-	br=(${branchs[*]})
-	echo $log + $pass
-	for i in "${arr[@]}"
+	for i in "${projectsPath[@]}"
 	do
-		rm -r $i
-		echo "Clone $i"
-		d=`echo $i | sed s#/##`                               # remove trailing forward slash
-		remoteRepo="https://$log@repo.arello-mobile.com/Xponia/$i"    # location of remote repo
-		branch=${branchs[${counter}]}
-		hg clone $remoteRepo -r $branch  # add remote repo as upstream
-		echo -e "\n"
+		if [ -n "$i" ]; then
+			rm -r $i
+			echo "Clone $i"
+			d=`echo $i | sed s#/##`                               # remove trailing forward slash
+			remoteRepo="https://$username@$repo_url/$repo_name/$i"    # location of remote repo
+			branch=${branches[${counter}]}
+			echo "Clone from $remoteRepo with branch: $branch"
+			hg clone $remoteRepo -r $branch  # add remote repo as upstream
+			echo -e "\n"
+		fi
 		let "counter += 1"
 	done
 }
-​
 generateConfig()
 {
 	echo "Generate config file"
+	modulePath=$android_module_path
 	rm config.properties
-	echo "CSV_PATH=$CURRENT_PATH/csv/
-​
-ANDROID_LOCATION=$CURRENT_PATH/Android/app/
-ANDROID_INCLUDING=strings.xml
-ANDROID_DEFAULT_LOCATION=en
-​
-WEB_LOCATION=$CURRENT_PATH/Web/
-WEB_DEFAULT_LOCATION=en
-​
-IOS_LOCATION=$CURRENT_PATH/Xponia_iOS/Xponia/
-IOS_DEFAULT_LOCATION=en
-IOS_CHARSET=Localizable.strings,UTF-16">>config.properties
+	echo "CSV_PATH=$CURRENT_PATH/csv/">>config.properties
+	if [ -n "$android_module_path" ]; then
+	   echo "
+ANDROID_LOCATION=$CURRENT_PATH/$android_project_repo/$android_module_path/
+ANDROID_INCLUDING=$android_translater_xml
+ANDROID_DEFAULT_LOCATION=$default_language">>config.properties
+	fi
+	if [ -n "$ios_project_path" ]; then
+		echo "
+IOS_LOCATION=$CURRENT_PATH/$ios_project_repo/$ios_project_path/
+IOS_DEFAULT_LOCATION=$default_language
+IOS_CHARSET=$ios_charset">>config.properties
+	fi
+	if [ -n "$web_project_repo" ]; then
+		echo "
+WEB_LOCATION=$CURRENT_PATH/$web_project_repo/
+WEB_DEFAULT_LOCATION=$default_language">>config.properties
+	fi
 }
-​
 generateCsv()
 {
 	echo "Generate csv"
 	java -jar translater.jar config.properties TO_CSV
 	echo -e "\n"
 }
-​
 removeProjectsFolders()
 {
-	for i in "${arr[@]}"
+	projectsPath[0]=$android_project_repo
+	projectsPath[1]=$ios_project_repo
+	projectsPath[2]=$web_project_repo
+	for i in "${projectsPath[@]}"
 	do
-		rm -r $i
+		if [ -n "$i" ]; then
+			rm -r $i
+		fi
 	done
 	rm config.properties
 }
-​
-copyPoFiles()
-{
-	_base="${CURRENT_PATH}/Web/src/locale/en/LC_MESSAGES"
-	_dfiles="$_base/*.po"
-	_pofolder=${CURRENT_PATH}/po
-	rm -r $_pofolder
-	mkdir $_pofolder
-	for f in $_dfiles
-	do
-		path=$(echo "$f" | sed "s/.*\///")
-		cp "$_base/$path" "$_pofolder/$path"
-	done
-}
-​
-downloadFromRepo $1 $2 $3 $4 $5
+
+downloadFromRepo
 generateConfig
 generateCsv
-copyPoFiles
 removeProjectsFolders
 exit $?

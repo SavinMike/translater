@@ -46,6 +46,20 @@ public class TranslateUpdateReader<T> extends UpdateReader<List<TranslateItem<T>
 	}
 
 	@Override
+	public boolean containsKey(final String key)
+	{
+		for (TranslateItem<T> translateItem : getUpdate())
+		{
+			if (translateItem.key.equals(key) && translateItem.contains(language))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	@Override
 	public void addNewTranslate(final String next)
 	{
 		List<TranslateItem<T>> copy = new ArrayList<>(getUpdate());
@@ -69,13 +83,14 @@ public class TranslateUpdateReader<T> extends UpdateReader<List<TranslateItem<T>
 				}
 
 				String id = mWriterRules.updateId(item, language);
+				String result = "";
 				if (id != null && !id.isEmpty())
 				{
-					addToList(id);
+					result += id;
 				}
 
-				String updateString = mWriterRules.updateString(item, language, String.format(DEFAULT_STRING, item.key)) + mWriterRules.addStringSuffix(item, language);
-				addToList(updateString);
+				result += mWriterRules.updateString(item, language, String.format(DEFAULT_STRING, item.key)) + mWriterRules.addStringSuffix(item, language);
+				addToList(result);
 			}
 		}
 

@@ -26,7 +26,7 @@ ANDROID_EXCLUDING=test1.xml;test2.xml
 ```
 
 Где: 
-1. CSV_PATH - путь, где хроняться или будут хрониться csv файлы.
+1. CSV_PATH - путь, где хранятся или будут храниться csv файлы.
 
 2. LOCATION - путь до проекта (Web, Ios, Android соответственно).
 

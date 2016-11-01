@@ -29,7 +29,7 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 			case ID:
 				id = next;
 				containsTranslate = mUpdateReader.containsKey(id);
-				Matcher matcher = Pattern.compile("(\\s*<\\s*string[\\sA-Za-z_0-9\\\"=]*>)(.*)").matcher(realString);
+				Matcher matcher = Pattern.compile("(\\s*<\\s*string[\\s\\w\\d\\\"=]*>)(.*)").matcher(realString);
 				while (matcher.find())
 				{
 					result = matcher.group(1);

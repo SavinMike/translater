@@ -27,7 +27,7 @@ public class IosWriterActionListener implements ReaderRules.RulesActionsListener
 				break;
 			case VALUE:
 				String updatedString = mUpdateReader.getUpdatedString(id, realString);
-				str = updatedString == null ? next : updatedString;
+				str = updatedString == null ? String.format("\"%s\" = \"%s\";", id, next) : updatedString;
 				mUpdateReader.addToList(str);
 				break;
 			case EMPTY:

@@ -115,6 +115,8 @@ public class Main
 					{
 						return s.substring(0, endIndex).replaceAll("\"\"", ReaderRules.QUOT);
 					}
+				} else {
+					return string.replaceAll("\"", ReaderRules.QUOT);
 				}
 
 				return string;

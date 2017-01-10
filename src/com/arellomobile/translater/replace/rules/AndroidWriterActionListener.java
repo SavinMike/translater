@@ -1,6 +1,7 @@
 package com.arellomobile.translater.replace.rules;
 
 import com.arellomobile.translater.reader.ReaderRules;
+import com.arellomobile.translater.reader.android.AndroidRules;
 import com.arellomobile.translater.replace.UpdateReader;
 
 import java.util.regex.Matcher;
@@ -19,7 +20,7 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 	}
 
 	@Override
-	public void onAction(final ReaderRules.ActionType actionType, final String next, final String realString)
+	public void onAction(final ReaderRules.ActionType actionType, String next, final String realString)
 	{
 		switch (actionType)
 		{
@@ -38,6 +39,7 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 			case VALUE:
 				if (!containsTranslate)
 				{
+					next = next.replaceAll(AndroidRules.QUOT, "\"");
 					result += next;
 				}
 				break;
@@ -50,7 +52,7 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 			case DONE:
 				if (containsTranslate)
 				{
-					result += mUpdateReader.getUpdatedString(id, realString);
+					result += mUpdateReader.getUpdatedString(id, realString).replaceAll(AndroidRules.QUOT, "\"");
 				}
 
 				Matcher matches = Pattern.compile("(.*)(<\\s*/\\s*string\\s*>)").matcher(realString);

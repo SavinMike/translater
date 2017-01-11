@@ -39,7 +39,7 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 			case VALUE:
 				if (!containsTranslate)
 				{
-					next = next.replaceAll(AndroidRules.QUOT, "\"");
+					next = next.replaceAll(AndroidRules.QUOT, "\\\\\"");
 					result += next;
 				}
 				break;
@@ -52,7 +52,7 @@ public class AndroidWriterActionListener implements ReaderRules.RulesActionsList
 			case DONE:
 				if (containsTranslate)
 				{
-					result += mUpdateReader.getUpdatedString(id, realString).replaceAll(AndroidRules.QUOT, "\"");
+					result += mUpdateReader.getUpdatedString(id, realString).replaceAll(AndroidRules.QUOT, "\\\\\"");
 				}
 
 				Matcher matches = Pattern.compile("(.*)(<\\s*/\\s*string\\s*>)").matcher(realString);

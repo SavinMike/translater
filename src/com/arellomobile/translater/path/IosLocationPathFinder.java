@@ -30,21 +30,36 @@ public class IosLocationPathFinder extends BaseLocationPathFinder
 		File localeDir = new File(mProjectPath);
 		List<PlatformsPath> platformsPaths = new ArrayList<>();
 
-		for (String fileName : localeDir.list())
+		findAllLprojFiles(localeDir, platformsPaths);
+		return platformsPaths;
+	}
+
+	private void findAllLprojFiles(final File localeDir, final List<PlatformsPath> platformsPaths)
+	{
+		if(localeDir.isDirectory())
 		{
-			if (fileName.contains(LPROJ))
+			String[] list = localeDir.list();
+			if(list == null){
+				return;
+			}
+
+			for (String fileName : list)
 			{
-				IosPlatformPath iosPlatformPath = new IosPlatformPath(fileName.substring(0, fileName.indexOf(LPROJ)));
-
-				iosPlatformPath.setExcludes(getExcludes());
-				iosPlatformPath.setIncludes(getIncludes());
-
-				if (iosPlatformPath.generateFileNames(localeDir.getAbsolutePath()))
+				if (fileName.contains(LPROJ))
 				{
-					platformsPaths.add(iosPlatformPath);
+					IosPlatformPath iosPlatformPath = new IosPlatformPath(fileName.substring(0, fileName.indexOf(LPROJ)));
+
+					iosPlatformPath.setExcludes(getExcludes());
+					iosPlatformPath.setIncludes(getIncludes());
+
+					if (iosPlatformPath.generateFileNames(localeDir.getAbsolutePath()))
+					{
+						platformsPaths.add(iosPlatformPath);
+					}
+				}else {
+					findAllLprojFiles(new File(localeDir,fileName), platformsPaths);
 				}
 			}
 		}
-		return platformsPaths;
 	}
 }
